@@ -11,12 +11,21 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-[#0e141a] border border-white/10 flex items-center justify-center p-1.5 shadow-md">
+              <div className="w-9 h-9 rounded-lg bg-[#0e141a] border border-white/10 flex items-center justify-center p-1.5 shadow-md shrink-0">
                 <img src="/brand/pilot-mark.png" alt="EgyKode Pilot" className="w-full h-full object-contain" />
               </div>
-              <span className="font-display font-bold text-white text-lg">
-                EgyKode <span className="text-[#22de7e]">Pilot</span>
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="font-display font-extrabold text-xl text-white tracking-tight">
+                  EgyKode
+                </span>
+                <span className="text-gray-600 font-light text-lg select-none">/</span>
+                <span className="font-display font-bold text-base text-[#22de7e] tracking-tight">
+                  Pilot
+                </span>
+                <span className="font-mono text-[9px] text-[#22de7e] bg-[#22de7e]/10 border border-[#22de7e]/30 px-1.5 py-0.5 rounded uppercase tracking-wider font-semibold">
+                  Compiler
+                </span>
+              </div>
             </div>
             <p className="text-sm text-gray-400 font-sans mb-4 max-w-sm leading-relaxed">
               The Intelligent Cloud DevOps Compiler. Transform source code into validated, production-grade cloud architectures with deterministic cost estimation and infrastructure generation.

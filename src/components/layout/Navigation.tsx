@@ -68,20 +68,31 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenGetPilot }) => {
       }`}
     >
       <div className="container-custom flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-3 group text-decoration-none">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0e141a] border border-white/10 flex items-center justify-center p-1.5 transition-all group-hover:border-[#22de7e]/50 group-hover:shadow-[0_0_15px_rgba(34,222,126,0.25)]">
+        {/* Brand Logo Lockup (Master Brand: EgyKode · Product: Pilot) */}
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3 group text-decoration-none">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0e141a] border border-white/10 flex items-center justify-center p-1.5 transition-all group-hover:border-[#22de7e]/50 group-hover:shadow-[0_0_15px_rgba(34,222,126,0.25)] shrink-0">
             <img src="/brand/pilot-mark.png" alt="EgyKode Pilot" className="w-full h-full object-contain" />
           </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-display font-bold text-white text-base tracking-tight">
-                EgyKode <span className="text-[#22de7e]">Pilot</span>
-              </span>
-              <span className="hidden sm:inline-block font-mono text-[9px] text-[#22de7e] bg-[#22de7e]/10 border border-[#22de7e]/30 px-1.5 py-0.5 rounded uppercase">
-                Compiler
-              </span>
-            </div>
+          <div className="flex items-center gap-2">
+            {/* Master Brand: EgyKode */}
+            <span className="font-display font-extrabold text-lg sm:text-xl text-white tracking-tight transition-colors">
+              EgyKode
+            </span>
+
+            {/* Architectural Hierarchy Separator */}
+            <span className="text-gray-500 dark:text-gray-500 font-light text-base select-none">
+              /
+            </span>
+
+            {/* Service / Product Name: Pilot */}
+            <span className="font-display font-bold text-sm sm:text-base text-[#22de7e] tracking-tight">
+              Pilot
+            </span>
+
+            {/* Service Type Pill */}
+            <span className="hidden sm:inline-block font-mono text-[9px] text-[#22de7e] bg-[#22de7e]/10 border border-[#22de7e]/30 px-1.5 py-0.5 rounded uppercase tracking-wider font-semibold">
+              Compiler
+            </span>
           </div>
         </a>
 

@@ -279,36 +279,41 @@ export const IdeCodeViewer: React.FC<IdeCodeViewerProps> = ({
       </div>
 
       {/* IDE Status Footer */}
-      <div className="flex items-center justify-between px-3.5 py-1.5 border-t border-gray-200 dark:border-white/10 bg-[#f3f4f6] dark:bg-[#0d1217] text-[10px] select-none font-mono text-gray-600 dark:text-gray-400 transition-colors duration-200">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between px-3 sm:px-3.5 py-1.5 border-t border-gray-200 dark:border-white/10 bg-[#f3f4f6] dark:bg-[#0d1217] text-[10px] select-none font-mono text-gray-600 dark:text-gray-400 transition-colors duration-200 gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
           {justSaved ? (
             <>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#22de7e]"></span>
-              <span className="text-[#047857] dark:text-[#22de7e] font-semibold flex items-center gap-1">
-                <IconCheck size={12} /> Override saved & validated
+              <span className="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#22de7e] shrink-0"></span>
+              <span className="text-[#047857] dark:text-[#22de7e] font-semibold flex items-center gap-1 whitespace-nowrap truncate">
+                <IconCheck size={12} className="shrink-0" />
+                <span className="hidden sm:inline">Override saved & </span>validated
               </span>
             </>
           ) : isModified ? (
             <>
-              <span className="w-2 h-2 rounded-full bg-amber-500 dark:bg-yellow-400 animate-pulse"></span>
-              <span className="text-amber-800 dark:text-yellow-400 font-semibold">
-                Modified in review (Review override active)
+              <span className="w-2 h-2 rounded-full bg-amber-500 dark:bg-yellow-400 animate-pulse shrink-0"></span>
+              <span className="text-amber-800 dark:text-yellow-400 font-semibold whitespace-nowrap truncate">
+                <span className="hidden sm:inline">Modified in review</span>
+                <span className="sm:hidden">Modified</span>
               </span>
             </>
           ) : (
             <>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#22de7e]"></span>
-              <span>No draft changes</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#22de7e] shrink-0"></span>
+              <span className="whitespace-nowrap truncate">
+                <span className="hidden sm:inline">No draft changes</span>
+                <span className="sm:hidden">Clean</span>
+              </span>
             </>
           )}
         </div>
 
-        <div className="flex items-center gap-3.5 text-gray-500 dark:text-gray-400">
-          <span>Ln 1, Col 1</span>
-          <span>{lines.length} lines</span>
-          <span>Spaces: 2</span>
-          <span>UTF-8</span>
-          <span className="uppercase font-semibold text-gray-800 dark:text-gray-200">
+        <div className="flex items-center gap-2 sm:gap-3 text-gray-500 dark:text-gray-400 shrink-0">
+          <span className="hidden md:inline whitespace-nowrap">Ln 1, Col 1</span>
+          <span className="whitespace-nowrap">{lines.length} lines</span>
+          <span className="hidden sm:inline whitespace-nowrap">Spaces: 2</span>
+          <span className="hidden sm:inline whitespace-nowrap">UTF-8</span>
+          <span className="uppercase font-semibold text-gray-800 dark:text-gray-200 whitespace-nowrap px-1.5 py-0.5 rounded bg-gray-200/70 dark:bg-white/5 border border-gray-300/50 dark:border-white/5">
             {language}
           </span>
         </div>

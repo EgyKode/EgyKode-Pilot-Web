@@ -81,32 +81,41 @@ export const GenerateSection: React.FC = () => {
             </div>
 
             {/* 3 Authentic Infera Export Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="grid grid-cols-3 sm:flex sm:items-center gap-1.5 w-full md:w-auto">
               <button
+                type="button"
                 onClick={handleWriteToFolder}
-                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center gap-1.5 font-medium shadow-2xs"
+                className="px-2 sm:px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center justify-center gap-1.5 font-medium shadow-2xs text-center"
                 title="Write all generated files directly to local folder on disk"
               >
-                <span>📁</span>
-                <span>Write to folder</span>
+                <span className="shrink-0">📁</span>
+                <span className="truncate">
+                  <span className="hidden sm:inline">Write to </span>folder
+                </span>
               </button>
 
               <button
+                type="button"
                 onClick={handleExportZip}
-                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center gap-1.5 font-medium shadow-2xs"
+                className="px-2 sm:px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center justify-center gap-1.5 font-medium shadow-2xs text-center"
                 title="Download offline .zip archive"
               >
-                <span>↓</span>
-                <span>Export ZIP</span>
+                <span className="shrink-0">↓</span>
+                <span className="truncate">
+                  <span className="hidden sm:inline">Export </span>ZIP
+                </span>
               </button>
 
               <button
+                type="button"
                 onClick={handleContinueToDelivery}
-                className="px-3.5 py-1.5 rounded-lg bg-[#059669] dark:bg-[#22de7e] text-white dark:text-black hover:bg-[#047857] dark:hover:bg-[#22de7e]/90 font-semibold transition-all font-sans text-xs flex items-center gap-1.5 shadow-xs"
+                className="px-2.5 sm:px-3.5 py-1.5 rounded-lg bg-[#059669] dark:bg-[#22de7e] text-white dark:text-black hover:bg-[#047857] dark:hover:bg-[#22de7e]/90 font-semibold transition-all font-sans text-xs flex items-center justify-center gap-1.5 shadow-xs text-center"
                 title="Continue to pull request & Git delivery"
               >
-                <span>→</span>
-                <span>Continue to delivery</span>
+                <span className="shrink-0">→</span>
+                <span className="truncate">
+                  <span className="hidden sm:inline">Continue to </span>delivery
+                </span>
               </button>
             </div>
           </div>

@@ -89,17 +89,18 @@ export const UnderstandSection: React.FC = () => {
               return (
                 <button
                   key={arch.id}
+                  type="button"
                   onClick={() => setActiveArchetype(arch)}
-                  className={`p-3 rounded-lg text-left transition-all border ${
+                  className={`p-3 rounded-lg text-left transition-all border min-h-[76px] flex flex-col justify-between ${
                     isSelected
                       ? 'bg-[#ecfdf5] border-[#a7f3d0] shadow-xs dark:bg-[#161b1f] dark:border-[#22de7e]/50 dark:shadow-md'
                       : 'bg-white border-gray-200/80 hover:border-gray-300 dark:bg-[#0b0e11] dark:border-white/5 dark:hover:border-white/15'
                   }`}
                 >
-                  <span className={`text-[10px] font-mono block mb-1 font-semibold ${isSelected ? 'text-[#047857] dark:text-[#22de7e]' : 'text-gray-500'}`}>
+                  <span className={`text-[10px] font-mono block mb-1 font-semibold truncate ${isSelected ? 'text-[#047857] dark:text-[#22de7e]' : 'text-gray-500'}`}>
                     {arch.category}
                   </span>
-                  <span className={`text-xs font-sans font-medium block truncate ${isSelected ? 'text-gray-900 dark:text-white font-semibold' : 'text-gray-600 dark:text-gray-300'}`}>
+                  <span className={`text-xs font-sans font-medium block line-clamp-2 leading-snug ${isSelected ? 'text-gray-900 dark:text-white font-semibold' : 'text-gray-600 dark:text-gray-300'}`}>
                     {arch.name}
                   </span>
                 </button>

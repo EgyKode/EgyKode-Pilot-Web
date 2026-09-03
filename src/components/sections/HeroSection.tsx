@@ -27,26 +27,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
       status: 'MAPPED'
     },
     {
-      id: 'goals',
-      step: '03',
-      title: 'Production Goals',
-      status: 'DEFINED'
-    },
-    {
       id: 'architecture',
-      step: '04',
+      step: '03',
       title: 'Best-Fit Architecture',
       status: 'RESOLVED'
     },
     {
       id: 'cost',
-      step: '05',
+      step: '04',
       title: 'Deterministic Cost',
       status: 'BUDGET FIT'
     },
     {
       id: 'validated',
-      step: '06',
+      step: '05',
       title: 'Pre-flight Verification',
       status: 'VALIDATED'
     }
@@ -92,9 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
         <div className="text-center max-w-4xl mx-auto mb-4">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold tracking-tight text-gray-900 dark:text-white leading-[1.05] mb-4">
             FROM CODE <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-[#047857] dark:from-white dark:via-gray-100 dark:to-[#22de7e]">
-              TO CLOUD.
-            </span>
+            TO CLOUD.
           </h1>
 
           <div className="space-y-2 mb-6">
@@ -130,61 +122,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
 
         {/* CINEMATIC COMPILER PRODUCT DEMO WINDOW */}
         <div className="max-w-4xl mx-auto">
-          {/* Step Progress Pipeline Bar */}
-          <div className="flex items-start gap-0 mb-3 overflow-x-auto pb-1 scrollbar-hide">
+          {/* Step Progress Conduit Bar */}
+          <div className="flex sm:grid sm:grid-cols-5 gap-1.5 mb-2.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
             {stages.map((st, idx) => {
               const isActive = activeStage === idx;
-              const isPast = idx < activeStage;
-              const isLast = idx === stages.length - 1;
+              const isPast = idx <= activeStage;
               return (
-                <div key={st.id} className="flex items-start flex-1 min-w-0">
-                  <button
-                    onClick={() => {
-                      setIsAutoPlaying(false);
-                      setActiveStage(idx);
-                    }}
-                    className="flex flex-col items-center text-center group w-full min-w-0"
-                  >
-                    {/* Circle + Line */}
-                    <div className="flex items-center w-full mb-1.5">
-                      {/* Left connector line */}
-                      {idx > 0 && (
-                        <div className={`h-[2px] flex-1 transition-all duration-300 ${
-                          isPast || isActive ? 'bg-[#22de7e]/60' : 'bg-white/10'
-                        }`} />
-                      )}
-                      {/* Circle */}
-                      <div className={`relative w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 text-[9px] font-mono font-bold ${
-                        isActive
-                          ? 'bg-[#22de7e] text-[#07090b] shadow-lg shadow-[#22de7e]/30 scale-110'
-                          : isPast
-                          ? 'bg-[#22de7e]/25 text-[#22de7e] border border-[#22de7e]/40'
-                          : 'bg-white/5 text-gray-500 border border-white/10 group-hover:border-white/25'
-                      }`}>
-                        {isPast && !isActive ? (
-                          <IconCheck size={11} />
-                        ) : (
-                          <span>{st.step}</span>
-                        )}
-                        {isActive && (
-                          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#22de7e] animate-ping" />
-                        )}
-                      </div>
-                      {/* Right connector line */}
-                      {!isLast && (
-                        <div className={`h-[2px] flex-1 transition-all duration-300 ${
-                          isPast ? 'bg-[#22de7e]/60' : 'bg-white/10'
-                        }`} />
-                      )}
-                    </div>
-                    {/* Label */}
-                    <span className={`text-[10px] font-mono leading-tight transition-colors px-0.5 truncate max-w-full ${
-                      isActive ? 'text-[#22de7e] font-semibold' : isPast ? 'text-gray-300' : 'text-gray-500'
-                    }`}>
-                      {st.title}
+                <button
+                  key={st.id}
+                  onClick={() => {
+                    setIsAutoPlaying(false);
+                    setActiveStage(idx);
+                  }}
+                  className={`text-left p-2 sm:p-2.5 rounded border transition-all min-w-[120px] sm:min-w-0 shrink-0 sm:shrink ${
+                    isActive
+                      ? 'bg-[#0f1316] border-[#22de7e]/60 shadow-md shadow-[#22de7e]/10'
+                      : isPast
+                      ? 'bg-[#0b0e11] border-white/10 hover:border-white/20'
+                      : 'bg-[#0b0e11]/50 border-white/5 opacity-60'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className={`text-[9px] font-mono font-bold ${isActive ? 'text-[#22de7e]' : 'text-gray-500'}`}>
+                      STEP {st.step}
                     </span>
-                  </button>
-                </div>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#22de7e] animate-ping"></span>
+                    )}
+                  </div>
+                  <div className={`text-[11px] font-sans font-medium truncate ${isActive ? 'text-white' : 'text-gray-400'}`}>
+                    {st.title}
+                  </div>
+                </button>
               );
             })}
           </div>
@@ -291,49 +260,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
               </div>
             )}
 
-            {/* Stage 03: Production Goals / Business Requirements */}
+            {/* Stage 03: Best-Fit Architecture */}
             {activeStage === 2 && (
               <div className="space-y-4 animate-in fade-in duration-200 font-mono text-xs">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div>
-                    <span className="text-[10px] text-[#22de7e] block uppercase">03 · PRODUCTION GOALS</span>
-                    <div className="text-sm font-semibold text-white">Define what matters to your business</div>
-                  </div>
-                  <span className="badge-confirmed text-[10px]">REQUIREMENTS LOCKED</span>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <div className="p-2.5 rounded bg-[#0b0e11] border border-white/10">
-                    <span className="text-[9px] text-gray-500 block mb-1">AVAILABILITY SLA</span>
-                    <span className="text-[#22de7e] font-semibold">99.95%</span>
-                  </div>
-                  <div className="p-2.5 rounded bg-[#0b0e11] border border-white/10">
-                    <span className="text-[9px] text-gray-500 block mb-1">BUDGET CEILING</span>
-                    <span className="text-[#22de7e] font-semibold">$150 / mo</span>
-                  </div>
-                  <div className="p-2.5 rounded bg-[#0b0e11] border border-white/10">
-                    <span className="text-[9px] text-gray-500 block mb-1">PERFORMANCE</span>
-                    <span className="text-white font-semibold">Cost Optimized</span>
-                  </div>
-                  <div className="p-2.5 rounded bg-[#0b0e11] border border-white/10">
-                    <span className="text-[9px] text-gray-500 block mb-1">LATENCY</span>
-                    <span className="text-white font-semibold">Medium</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded bg-[#0f1316] border border-white/5 text-[11px] text-gray-400 flex items-center justify-between">
-                  <span>Business intent compiled into strict architectural constraints</span>
-                  <span className="text-[#22de7e]">Ready for Architecture Design</span>
-                </div>
-              </div>
-            )}
-
-            {/* Stage 04: Best-Fit Architecture */}
-            {activeStage === 3 && (
-              <div className="space-y-4 animate-in fade-in duration-200 font-mono text-xs">
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                  <div>
-                    <span className="text-[10px] text-[#22de7e] block uppercase">04 · BEST-FIT ARCHITECTURE</span>
+                    <span className="text-[10px] text-[#22de7e] block uppercase">03 · BEST-FIT ARCHITECTURE</span>
                     <div className="text-sm font-semibold text-white">AWS ECS Fargate + RDS + SQS</div>
                   </div>
                   <span className="badge-confirmed text-[10px]">RECOMMENDED FIT</span>
@@ -365,12 +297,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
               </div>
             )}
 
-            {/* Stage 05: Deterministic Cost */}
-            {activeStage === 4 && (
+            {/* Stage 04: Deterministic Cost */}
+            {activeStage === 3 && (
               <div className="space-y-4 animate-in fade-in duration-200 font-mono text-xs">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div>
-                    <span className="text-[10px] text-gray-400 block uppercase">05 · DETERMINISTIC COST</span>
+                    <span className="text-[10px] text-gray-400 block uppercase">04 · DETERMINISTIC COST</span>
                     <div className="flex items-baseline gap-2">
                       <span className="text-2xl font-bold text-[#22de7e]">$104.32</span>
                       <span className="text-gray-400 text-xs">/ month</span>
@@ -408,12 +340,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
               </div>
             )}
 
-            {/* Stage 06: Pre-flight Verification */}
-            {activeStage === 5 && (
+            {/* Stage 05: Pre-flight Verification */}
+            {activeStage === 4 && (
               <div className="space-y-4 animate-in fade-in duration-200 font-mono text-xs">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div>
-                    <span className="text-[10px] text-[#22de7e] block uppercase">06 · PRE-FLIGHT VERIFICATION</span>
+                    <span className="text-[10px] text-[#22de7e] block uppercase">05 · PRE-FLIGHT VERIFICATION</span>
                     <div className="text-sm font-semibold text-white">7 of 7 Invariants Verified ✓</div>
                   </div>
                   <span className="badge-confirmed text-[10px]">READY FOR GIT PR</span>

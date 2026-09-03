@@ -52,52 +52,77 @@ export const MagicMomentSection: React.FC = () => {
         {/* Interactive Scanner Product Surface */}
         <div className="max-w-5xl mx-auto">
           {/* Source Location Selector Bar (Local Folder vs Git Repo) */}
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-4 p-3.5 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 shadow-sm transition-colors duration-200">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-mono text-gray-500 dark:text-gray-400 font-medium">Source:</span>
+          <div className="mb-4 p-3 sm:p-3.5 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 shadow-sm transition-colors duration-200">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              {/* Segmented Source Mode Switcher */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-gray-400 dark:text-gray-500 font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#059669] dark:bg-[#22de7e]"></span>
+                    Source:
+                  </span>
+                </div>
 
-              {/* Local Folder Option */}
-              <button
-                onClick={() => triggerRescan('local')}
-                className={`text-xs font-mono px-3 py-1.5 rounded-lg transition-all flex items-center gap-2 ${
-                  sourceType === 'local'
-                    ? 'bg-[#ecfdf5] text-[#047857] border border-[#a7f3d0] font-semibold dark:bg-[#22de7e]/15 dark:text-[#22de7e] dark:border-[#22de7e]/40 shadow-xs'
-                    : 'bg-gray-100 dark:bg-[#161b1f] text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-white/5 hover:text-gray-900 dark:hover:text-white'
-                }`}
-              >
-                <span>📁 Local Folder:</span>
-                <span className="font-semibold text-gray-800 dark:text-gray-200">~/projects/shop-microservices</span>
-              </button>
+                {/* 2-Column Segmented Tab Pills */}
+                <div className="grid grid-cols-2 sm:inline-flex p-1 bg-gray-100 dark:bg-[#161b1f] rounded-lg border border-gray-200/70 dark:border-white/5">
+                  <button
+                    type="button"
+                    onClick={() => triggerRescan('local')}
+                    className={`text-xs font-mono py-1.5 px-3 rounded-md transition-all flex items-center justify-center gap-1.5 ${
+                      sourceType === 'local'
+                        ? 'bg-white text-[#047857] shadow-xs font-bold border border-gray-200/80 dark:bg-[#22de7e]/15 dark:text-[#22de7e] dark:border-[#22de7e]/40'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <span>📁</span>
+                    <span>Local Folder</span>
+                  </button>
 
-              {/* Git Repo Option */}
-              <button
-                onClick={() => triggerRescan('git')}
-                className={`text-xs font-mono px-3 py-1.5 rounded-lg transition-all flex items-center gap-2 ${
-                  sourceType === 'git'
-                    ? 'bg-[#ecfdf5] text-[#047857] border border-[#a7f3d0] font-semibold dark:bg-[#22de7e]/15 dark:text-[#22de7e] dark:border-[#22de7e]/40 shadow-xs'
-                    : 'bg-gray-100 dark:bg-[#161b1f] text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-white/5 hover:text-gray-900 dark:hover:text-white'
-                }`}
-              >
-                <span>⑂ Git Repo:</span>
-                <span className="text-gray-600 dark:text-gray-400">github.com/acme/shop</span>
-              </button>
+                  <button
+                    type="button"
+                    onClick={() => triggerRescan('git')}
+                    className={`text-xs font-mono py-1.5 px-3 rounded-md transition-all flex items-center justify-center gap-1.5 ${
+                      sourceType === 'git'
+                        ? 'bg-white text-[#047857] shadow-xs font-bold border border-gray-200/80 dark:bg-[#22de7e]/15 dark:text-[#22de7e] dark:border-[#22de7e]/40'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <span>⑂</span>
+                    <span>Git Repo</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Active Target Path & Rescan Action */}
+              <div className="flex items-center gap-2">
+                {/* Active Path Box */}
+                <div className="flex-1 md:flex-initial min-w-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 dark:bg-[#07090b] border border-gray-200 dark:border-white/10 font-mono text-xs">
+                  <span className="text-gray-400 dark:text-gray-500 text-[10px] uppercase shrink-0">
+                    {sourceType === 'local' ? 'DIR:' : 'REPO:'}
+                  </span>
+                  <span className="truncate text-gray-800 dark:text-gray-200 font-medium">
+                    {sourceType === 'local' ? '~/projects/shop-microservices' : 'github.com/acme/shop'}
+                  </span>
+                </div>
+
+                {/* Quick Action Button */}
+                <button
+                  type="button"
+                  onClick={() => triggerRescan(sourceType)}
+                  disabled={isScanning}
+                  className="btn-secondary text-xs py-1.5 px-3 shrink-0 flex items-center gap-1.5 active:scale-95 transition-transform"
+                >
+                  <IconSearch size={13} className={isScanning ? 'animate-spin' : ''} />
+                  <span>
+                    {isScanning
+                      ? 'Scanning...'
+                      : sourceType === 'local'
+                      ? 'Rescan'
+                      : 'Re-clone'}
+                  </span>
+                </button>
+              </div>
             </div>
-
-            {/* Quick Action Button */}
-            <button
-              onClick={() => triggerRescan(sourceType)}
-              disabled={isScanning}
-              className="btn-secondary text-xs py-1.5 px-3 flex items-center gap-2"
-            >
-              <IconSearch size={14} />
-              <span>
-                {isScanning
-                  ? 'Analyzing AST...'
-                  : sourceType === 'local'
-                  ? 'Rescan Local Folder'
-                  : 'Re-clone & Analyze'}
-              </span>
-            </button>
           </div>
 
           {/* Scanner Product Window */}
@@ -238,9 +263,9 @@ export const MagicMomentSection: React.FC = () => {
                   </div>
 
                   {/* Local Guarantee Callout */}
-                  <div className="mt-6 pt-4 border-t border-gray-200 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-600 dark:text-gray-400">
+                  <div className="mt-6 pt-4 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#047857] dark:bg-[#22de7e]"></span>
+                      <span className="w-2 h-2 rounded-full bg-[#047857] dark:bg-[#22de7e] shrink-0"></span>
                       <span>Zero-egress analysis: No code leaves your machine</span>
                     </span>
                     <span className="text-[#047857] dark:text-[#22de7e] font-semibold">

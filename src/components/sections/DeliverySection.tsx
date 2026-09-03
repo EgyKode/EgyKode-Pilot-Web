@@ -39,50 +39,57 @@ export const DeliverySection: React.FC = () => {
               </div>
 
               {/* 3 Export Mode Tabs */}
-              <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-gray-100 dark:bg-[#0b0e11] border border-gray-200 dark:border-white/10 text-xs font-mono">
+              <div className="grid grid-cols-3 sm:inline-flex items-center gap-1 sm:gap-1.5 p-1 rounded-lg bg-gray-100 dark:bg-[#0b0e11] border border-gray-200 dark:border-white/10 text-xs font-mono w-full sm:w-auto">
                 <button
+                  type="button"
                   onClick={() => {
                     setDeliveryMode('folder');
                     setIsExported(false);
                   }}
-                  className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 ${
+                  className={`px-2 sm:px-3 py-1.5 rounded-md transition-all flex items-center justify-center gap-1.5 text-center ${
                     deliveryMode === 'folder'
                       ? 'bg-white dark:bg-[#161b1f] text-[#047857] dark:text-[#22de7e] border border-gray-300/80 dark:border-[#22de7e]/30 font-semibold shadow-xs'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
-                  <span>📁</span>
-                  <span>Write to folder</span>
+                  <span className="shrink-0">📁</span>
+                  <span className="truncate">
+                    <span className="hidden sm:inline">Write to </span>folder
+                  </span>
                 </button>
 
                 <button
+                  type="button"
                   onClick={() => {
                     setDeliveryMode('zip');
                     setIsExported(false);
                   }}
-                  className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 ${
+                  className={`px-2 sm:px-3 py-1.5 rounded-md transition-all flex items-center justify-center gap-1.5 text-center ${
                     deliveryMode === 'zip'
                       ? 'bg-white dark:bg-[#161b1f] text-[#047857] dark:text-[#22de7e] border border-gray-300/80 dark:border-[#22de7e]/30 font-semibold shadow-xs'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
-                  <span>↓</span>
-                  <span>Export ZIP</span>
+                  <span className="shrink-0">↓</span>
+                  <span className="truncate">
+                    <span className="hidden sm:inline">Export </span>ZIP
+                  </span>
                 </button>
 
                 <button
+                  type="button"
                   onClick={() => {
                     setDeliveryMode('pr');
                     setIsExported(false);
                   }}
-                  className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 ${
+                  className={`px-2 sm:px-3 py-1.5 rounded-md transition-all flex items-center justify-center gap-1.5 text-center ${
                     deliveryMode === 'pr'
                       ? 'bg-[#059669] dark:bg-[#22de7e] text-white dark:text-black font-semibold shadow-xs'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
-                  <IconGitPullRequest size={13} />
-                  <span>Pull Request</span>
+                  <IconGitPullRequest size={13} className="shrink-0" />
+                  <span className="truncate">Pull Request</span>
                 </button>
               </div>
             </div>

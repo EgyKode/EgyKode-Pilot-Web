@@ -482,11 +482,4 @@ html:not(.dark) .hover\:text-white:hover {
   color: #047857 !important;
 }
 
-/* Hide scrollbar for pipeline stepper */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
+

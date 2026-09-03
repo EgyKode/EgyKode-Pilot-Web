@@ -1,0 +1,149 @@
+import React, { useState } from 'react';
+import { SectionHeader } from '../common/SectionHeader';
+import { IconArrowRight, IconCheck, IconAlertTriangle } from '../common/Icons';
+
+export const ProblemSection: React.FC = () => {
+  const [activeView, setActiveView] = useState<'traditional' | 'pilot'>('pilot');
+
+  const traditionalSteps = [
+    { title: 'Write Code', desc: 'Polyglot apps & services' },
+    { title: 'Learn Cloud Semantics', desc: 'Dozens of AWS / GCP / Azure services' },
+    { title: 'Pick Cloud Services', desc: 'Guessing between ECS, EKS, Lambda, App Runner' },
+    { title: 'Design Architecture', desc: 'Subnets, VPCs, routing, load balancers' },
+    { title: 'Write IaC / Terraform', desc: 'Hundreds of lines of boilerplates & providers' },
+    { title: 'Configure CI/CD Pipelines', desc: 'Brittle YAML scripts & credentials' },
+    { title: 'Configure IAM & Security', desc: 'Wildcards risk vs access denied errors' },
+    { title: 'Debug Runtime Failures', desc: 'Crashing pods, port mismatches, DNS issues' },
+    { title: 'Estimate Surprises', desc: 'Surprise NAT gateway and egress bills' },
+    { title: 'Repeat for Every Change', desc: 'Continuous friction and drift' }
+  ];
+
+  return (
+    <section id="story" className="py-24 sm:py-32 relative border-t border-white/5 bg-[#080a0c]">
+      <div className="container-custom">
+        <SectionHeader
+          sceneNumber="SCENE 02"
+          category="THE COGNITIVE REDUCTION"
+          title="Cloud shouldn't start with infrastructure."
+          subtitle="The traditional cloud journey forces developers to become full-time cloud architects just to run their application. Pilot inverts this paradigm by starting where you live: in your code."
+        />
+
+        {/* Workflow Toggle / Tab */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex p-1 rounded-lg bg-[#0f1316] border border-white/10">
+            <button
+              onClick={() => setActiveView('traditional')}
+              className={`px-4 py-2 rounded-md text-xs font-mono transition-all ${
+                activeView === 'traditional'
+                  ? 'bg-red-500/15 text-red-400 border border-red-500/30'
+                  : 'text-gray-400 hover:text-gray-200'
+              }`}
+            >
+              The Traditional Struggle (10 Steps)
+            </button>
+            <button
+              onClick={() => setActiveView('pilot')}
+              className={`px-4 py-2 rounded-md text-xs font-mono transition-all flex items-center gap-2 ${
+                activeView === 'pilot'
+                  ? 'bg-[#22de7e]/15 text-[#22de7e] border border-[#22de7e]/30'
+                  : 'text-gray-400 hover:text-gray-200'
+              }`}
+            >
+              <span>The Pilot Compiler (1 Step)</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#22de7e]"></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Dynamic Workflow Visualization */}
+        {activeView === 'traditional' ? (
+          <div className="glass-panel p-6 sm:p-8 border border-red-500/20 bg-[#0f1316]/80 animate-in fade-in duration-300">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3 text-red-400 text-sm font-mono font-medium">
+                <IconAlertTriangle size={18} />
+                <span>Traditional Workflow: Fragmented, Manual & Fragile</span>
+              </div>
+              <span className="text-xs font-mono text-gray-500">Cognitive Load: HIGH</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              {traditionalSteps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="p-3.5 rounded bg-[#0b0e11] border border-white/5 relative group hover:border-red-500/30 transition-colors"
+                >
+                  <div className="text-[10px] font-mono text-red-400/70 mb-1">
+                    STEP {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className="text-xs font-medium text-gray-200 mb-1">
+                    {step.title}
+                  </div>
+                  <div className="text-[11px] text-gray-500 font-sans leading-tight">
+                    {step.desc}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+              <span className="text-red-400/90">Trial-and-error debugging · Hidden cost landmines · Days to weeks to deploy</span>
+              <button
+                onClick={() => setActiveView('pilot')}
+                className="text-xs text-[#22de7e] hover:underline flex items-center gap-1"
+              >
+                <span>Collapse with Pilot</span>
+                <IconArrowRight size={14} />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="glass-panel p-6 sm:p-8 border border-[#22de7e]/30 bg-[#0f1316]/90 shadow-2xl animate-in fade-in duration-300">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3 text-[#22de7e] text-sm font-mono font-medium">
+                <IconCheck size={18} />
+                <span>The Pilot Paradigm: Application-First Architecture</span>
+              </div>
+              <span className="text-xs font-mono text-[#22de7e] bg-[#22de7e]/10 px-2 py-0.5 rounded border border-[#22de7e]/20">
+                Cognitive Overhead: ELIMINATED
+              </span>
+            </div>
+
+            {/* Visual Transformation Pathway */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-6 px-4 bg-[#0b0e11] rounded-lg border border-white/5">
+              {/* Input: Source Code */}
+              <div className="text-center md:text-left">
+                <div className="text-[10px] font-mono text-gray-500 mb-1">WHAT YOU PROVIDE</div>
+                <div className="text-xl font-display font-semibold text-white mb-1">Source Code + Intent</div>
+                <div className="text-xs text-gray-400 font-mono">Repository · Target SLA · Budget Ceiling</div>
+              </div>
+
+              {/* Transformation Conduit */}
+              <div className="flex-1 flex flex-col items-center px-4 w-full md:w-auto">
+                <div className="w-full h-1 bg-gradient-to-r from-gray-700 via-[#22de7e] to-gray-700 relative rounded-full">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-[#161b1f] border border-[#22de7e]/40 rounded-full text-[11px] font-mono text-[#22de7e] whitespace-nowrap shadow-lg">
+                    Pilot Compiler Engine
+                  </div>
+                </div>
+                <span className="text-[10px] font-mono text-gray-500 mt-3">
+                  Deterministic Analysis · Sizing Rules · Invariant Validation
+                </span>
+              </div>
+
+              {/* Output: Cloud Delivery */}
+              <div className="text-center md:text-right">
+                <div className="text-[10px] font-mono text-[#22de7e] mb-1">WHAT COMES OUT</div>
+                <div className="text-xl font-display font-semibold text-white mb-1">Production DevOps Architecture</div>
+                <div className="text-xs text-gray-400 font-mono">Costed · Terraform · K8s · Verified PR</div>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-300 font-sans">
+              <span>Your application already contains the cues for what it needs. Pilot compiles that intent directly into cloud infrastructure.</span>
+              <span className="font-mono text-[#22de7e]">Code → Pilot</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};

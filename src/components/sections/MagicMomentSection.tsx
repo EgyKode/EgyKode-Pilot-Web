@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { SectionHeader } from '../common/SectionHeader';
 import { ProductWindow } from '../common/ProductWindow';
 import { REPOSITORY_WORKLOADS } from '../../data/mockData';
-import { Workload } from '../../types/pilot';
-import { IconCpu, IconDatabase, IconServer, IconFileCode, IconSearch, IconCheck, IconExternalLink } from '../common/Icons';
+import { WorkloadItem } from '../../types/pilot';
+import { IconCpu, IconDatabase, IconTerminal, IconFileCode, IconSearch, IconCheck } from '../common/Icons';
 
 export const MagicMomentSection: React.FC = () => {
   const [sourceType, setSourceType] = useState<'local' | 'git'>('local');
   const [selectedRepo, setSelectedRepo] = useState<string>('shop-microservices');
-  const [activeWorkload, setActiveWorkload] = useState<Workload>(REPOSITORY_WORKLOADS['shop-microservices'][0]);
+  const [activeWorkload, setActiveWorkload] = useState<WorkloadItem>(REPOSITORY_WORKLOADS['shop-microservices'][0]);
   const [isScanning, setIsScanning] = useState<boolean>(false);
   const [scanProgress, setScanProgress] = useState<number>(100);
 
@@ -29,17 +29,14 @@ export const MagicMomentSection: React.FC = () => {
   };
 
   const getWorkloadIcon = (type: string) => {
-    switch (type) {
-      case 'api-service':
-      case 'web-app':
-        return <IconServer size={18} className="text-[#059669] dark:text-[#22de7e]" />;
-      case 'background-worker':
-        return <IconCpu size={18} className="text-sky-600 dark:text-sky-400" />;
-      case 'database':
-        return <IconDatabase size={18} className="text-amber-600 dark:text-amber-400" />;
-      default:
-        return <IconFileCode size={18} className="text-gray-400" />;
+    const lower = type.toLowerCase();
+    if (lower.includes('database')) {
+      return <IconDatabase size={18} className="text-amber-600 dark:text-amber-400" />;
     }
+    if (lower.includes('worker') || lower.includes('consumer')) {
+      return <IconCpu size={18} className="text-sky-600 dark:text-sky-400" />;
+    }
+    return <IconTerminal size={18} className="text-[#059669] dark:text-[#22de7e]" />;
   };
 
   return (
@@ -157,13 +154,13 @@ export const MagicMomentSection: React.FC = () => {
                             </span>
                           </div>
                           <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200/60 dark:border-white/5">
-                            {wl.type.replace('-', ' ')}
+                            {wl.status}
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-4 text-xs text-gray-600 dark:text-gray-400 font-mono mt-2">
-                          <span>{wl.language} · {wl.framework}</span>
-                          <span>Port {wl.port}</span>
+                        <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400 font-mono mt-2">
+                          <span>{wl.runtime}</span>
+                          <span>Port {wl.specs.port}</span>
                         </div>
                       </div>
                     );
@@ -176,7 +173,7 @@ export const MagicMomentSection: React.FC = () => {
                     <div className="flex items-center justify-between pb-3 border-b border-gray-200 dark:border-white/10">
                       <div>
                         <span className="text-[10px] font-mono text-gray-500 uppercase">
-                          {sourceType === 'local' ? 'IN-PLACE DISK EVIDENCE' : 'CLONED WORKSPACE EVIDENCE'}
+                          {sourceType === 'local' ? 'IN-PLACE LOCAL FILE EVIDENCE' : 'CLONED WORKSPACE EVIDENCE'}
                         </span>
                         <h4 className="text-lg font-display font-semibold text-gray-900 dark:text-white">
                           {activeWorkload.name}
@@ -191,18 +188,18 @@ export const MagicMomentSection: React.FC = () => {
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
                       <div className="p-2.5 rounded bg-white dark:bg-[#161b1f] border border-gray-200/80 dark:border-white/5">
                         <span className="text-[10px] text-gray-500 block">RUNTIME PORT</span>
-                        <span className="text-gray-900 dark:text-white font-semibold">:{activeWorkload.port}</span>
+                        <span className="text-gray-900 dark:text-white font-semibold">:{activeWorkload.specs.port}</span>
                       </div>
                       <div className="p-2.5 rounded bg-white dark:bg-[#161b1f] border border-gray-200/80 dark:border-white/5">
-                        <span className="text-[10px] text-gray-500 block">STATEFULNESS</span>
+                        <span className="text-[10px] text-gray-500 block">RESOURCE ALLOCATION</span>
                         <span className="text-gray-900 dark:text-white font-semibold">
-                          {activeWorkload.stateful ? 'Stateful Storage' : 'Stateless'}
+                          {activeWorkload.specs.cpu} · {activeWorkload.specs.memory}
                         </span>
                       </div>
                       <div className="p-2.5 rounded bg-white dark:bg-[#161b1f] border border-gray-200/80 dark:border-white/5">
-                        <span className="text-[10px] text-gray-500 block">HEALTH CHECK</span>
+                        <span className="text-[10px] text-gray-500 block">SCALING INVARIANT</span>
                         <span className="text-[#047857] dark:text-[#22de7e] font-semibold truncate block font-mono">
-                          {activeWorkload.healthEndpoint || 'Process PID'}
+                          {activeWorkload.specs.scaling}
                         </span>
                       </div>
                     </div>
@@ -212,15 +209,29 @@ export const MagicMomentSection: React.FC = () => {
                       <span className="text-xs font-mono text-gray-600 dark:text-gray-400 block font-semibold">
                         Direct Local File Proof:
                       </span>
-                      <div className="space-y-1.5 font-mono text-xs">
-                        {activeWorkload.evidence.map((ev, idx) => (
-                          <div
+                      <div className="p-3 rounded bg-white dark:bg-[#080a0c] border border-gray-200/80 dark:border-white/5 text-gray-700 dark:text-gray-300 font-mono text-xs shadow-xs space-y-1">
+                        <div className="text-[10px] text-gray-500">
+                          FILE: <span className="text-gray-700 dark:text-gray-300 font-semibold">{activeWorkload.evidence.file}</span> (Line {activeWorkload.evidence.line})
+                        </div>
+                        <div className="text-[#047857] dark:text-[#22de7e] font-mono text-[11px] bg-gray-50 dark:bg-white/5 p-1.5 rounded">
+                          ↳ {activeWorkload.evidence.match}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Discovered Dependencies */}
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-mono text-gray-600 dark:text-gray-400 block font-semibold">
+                        Discovered Resource Dependencies:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {activeWorkload.dependencies.map((dep, idx) => (
+                          <span
                             key={idx}
-                            className="p-2.5 rounded bg-white dark:bg-[#080a0c] border border-gray-200/80 dark:border-white/5 text-gray-700 dark:text-gray-300 flex items-start gap-2 shadow-xs"
+                            className="px-2 py-0.5 rounded bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[10px] font-mono text-gray-700 dark:text-gray-300 shadow-2xs"
                           >
-                            <span className="text-[#047857] dark:text-[#22de7e] mt-0.5">↳</span>
-                            <span className="text-xs leading-relaxed">{ev}</span>
-                          </div>
+                            ✓ {dep}
+                          </span>
                         ))}
                       </div>
                     </div>
@@ -233,7 +244,7 @@ export const MagicMomentSection: React.FC = () => {
                       <span>Zero-egress analysis: No code leaves your machine</span>
                     </span>
                     <span className="text-[#047857] dark:text-[#22de7e] font-semibold">
-                      {sourceType === 'local' ? 'Read-only disk scan' : 'Private local clone'}
+                      {sourceType === 'local' ? 'Read-only local disk scan' : 'Private local clone'}
                     </span>
                   </div>
                 </div>

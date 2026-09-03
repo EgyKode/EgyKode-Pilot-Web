@@ -7,6 +7,7 @@ import { IdeCodeViewer } from '../common/IdeCodeViewer';
 
 export const GenerateSection: React.FC = () => {
   const [selectedFileIndex, setSelectedFileIndex] = useState<number>(0);
+  const [actionNotice, setActionNotice] = useState<string | null>(null);
   const currentFile = GENERATED_FILES[selectedFileIndex];
 
   const compilerPhases = [
@@ -17,6 +18,23 @@ export const GenerateSection: React.FC = () => {
     { name: 'SECURING', label: 'Zero-Wildcard IAM', done: true },
     { name: 'VALIDATING', label: '7 Invariants Passed', done: true }
   ];
+
+  const handleWriteToFolder = () => {
+    setActionNotice('14 files written directly to local folder: ~/projects/shop-microservices/terraform/');
+    setTimeout(() => setActionNotice(null), 4000);
+  };
+
+  const handleExportZip = () => {
+    setActionNotice('Exported offline archive: shop-microservices-devops-v1.0.zip (48 KB)');
+    setTimeout(() => setActionNotice(null), 4000);
+  };
+
+  const handleContinueToDelivery = () => {
+    const deliveryEl = document.querySelector('#delivery');
+    if (deliveryEl) {
+      deliveryEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="generate" className="py-24 sm:py-32 relative border-t border-gray-200/80 dark:border-white/5 bg-[#f6f8fa] dark:bg-[#080a0c] transition-colors duration-200">
@@ -30,7 +48,7 @@ export const GenerateSection: React.FC = () => {
 
         <div className="max-w-5xl mx-auto">
           {/* Compiler Pipeline Stage Chips */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
             {compilerPhases.map((phase, idx) => (
               <div
                 key={phase.name}
@@ -43,6 +61,54 @@ export const GenerateSection: React.FC = () => {
                 <span className="text-gray-700 dark:text-gray-300 text-[11px] truncate font-sans">{phase.label}</span>
               </div>
             ))}
+          </div>
+
+          {/* Action Notification Toast */}
+          {actionNotice && (
+            <div className="mb-3 p-3 rounded-lg bg-[#ecfdf5] dark:bg-[#22de7e]/15 border border-[#a7f3d0] dark:border-[#22de7e]/40 text-[#047857] dark:text-[#22de7e] font-mono text-xs flex items-center gap-2 animate-in fade-in duration-200 shadow-xs">
+              <IconCheck size={14} />
+              <span className="font-semibold">{actionNotice}</span>
+            </div>
+          )}
+
+          {/* Generation Plan Action Bar (Infera Desktop Actions) */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4 p-3 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 font-mono text-xs shadow-sm transition-colors duration-200">
+            <div className="flex items-center gap-2">
+              <span className="text-gray-500 dark:text-gray-400 text-[11px]">Generation Plan:</span>
+              <span className="font-semibold text-gray-900 dark:text-white">6 files compiled</span>
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+              <span className="text-[#047857] dark:text-[#22de7e] font-semibold">100% Invariants Passed</span>
+            </div>
+
+            {/* 3 Authentic Infera Export Buttons */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleWriteToFolder}
+                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center gap-1.5 font-medium shadow-2xs"
+                title="Write all generated files directly to local folder on disk"
+              >
+                <span>📁</span>
+                <span>Write to folder</span>
+              </button>
+
+              <button
+                onClick={handleExportZip}
+                className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300/70 dark:border-white/10 transition-all font-sans text-xs flex items-center gap-1.5 font-medium shadow-2xs"
+                title="Download offline .zip archive"
+              >
+                <span>↓</span>
+                <span>Export ZIP</span>
+              </button>
+
+              <button
+                onClick={handleContinueToDelivery}
+                className="px-3.5 py-1.5 rounded-lg bg-[#059669] dark:bg-[#22de7e] text-white dark:text-black hover:bg-[#047857] dark:hover:bg-[#22de7e]/90 font-semibold transition-all font-sans text-xs flex items-center gap-1.5 shadow-xs"
+                title="Continue to pull request & Git delivery"
+              >
+                <span>→</span>
+                <span>Continue to delivery</span>
+              </button>
+            </div>
           </div>
 
           {/* IDE-Grade File Viewer Window */}

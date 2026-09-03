@@ -78,7 +78,7 @@ export const UnderstandSection: React.FC = () => {
           sceneNumber="SCENE 04"
           category="TOPOLOGICAL INTELLIGENCE"
           title="Pilot understands what your application is."
-          subtitle="Pilot does not treat your repository as one giant monolithic container. It recognizes distinct workloads, runtime contracts, background workers, and databases — matching each to its optimal cloud archetype."
+          subtitle="Pilot does not treat your codebase as one giant monolithic container. Whether pointed at a local folder on disk or a cloned Git repository, it recognizes distinct workloads, runtime contracts, background workers, and databases — matching each to its optimal cloud archetype."
         />
 
         <div className="max-w-5xl mx-auto">

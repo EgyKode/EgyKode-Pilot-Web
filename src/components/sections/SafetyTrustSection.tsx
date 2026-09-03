@@ -120,6 +120,72 @@ export const SafetyTrustSection: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Trust & Status Vocabulary Matrix */}
+          <div className="mt-8 p-6 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 shadow-xs transition-colors duration-200">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-gray-200 dark:border-white/10 gap-2">
+              <div>
+                <span className="text-[10px] font-mono text-[#047857] dark:text-[#22de7e] font-semibold uppercase tracking-wider block">
+                  CANONICAL STATUS SYSTEM
+                </span>
+                <h4 className="text-base font-display font-bold text-gray-900 dark:text-white">
+                  Trust & Status Vocabulary
+                </h4>
+              </div>
+              <span className="text-xs font-mono text-gray-500">
+                No unknown cost becomes $0 · No AI guess becomes fact
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                {
+                  label: 'Detected',
+                  meaning: 'Proven by a file, dependency, manifest, or source declaration.',
+                  badgeClass: 'text-[#047857] dark:text-[#22de7e] bg-[#ecfdf5] dark:bg-[#22de7e]/10 border-[#a7f3d0] dark:border-[#22de7e]/30'
+                },
+                {
+                  label: 'Inferred',
+                  meaning: 'Suggested from indirect cues or topological heuristics.',
+                  badgeClass: 'text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-200 dark:border-sky-500/30'
+                },
+                {
+                  label: 'Verified Cost Rate',
+                  meaning: 'Retrieved directly from the AWS Price List API for the exact region.',
+                  badgeClass: 'text-amber-800 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/30'
+                },
+                {
+                  label: 'Calculated',
+                  meaning: 'Deterministic arithmetic over a captured rate card snapshot.',
+                  badgeClass: 'text-purple-700 dark:text-purple-400 bg-purple-50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-500/30'
+                },
+                {
+                  label: 'Estimated',
+                  meaning: 'Depends on traffic forecasts, regional uplift, or declared assumptions.',
+                  badgeClass: 'text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/5 border-gray-200 dark:border-white/10'
+                },
+                {
+                  label: 'Local',
+                  meaning: 'The operation occurs 100% on your machine with zero cloud egress.',
+                  badgeClass: 'text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30'
+                }
+              ].map((vocab) => (
+                <div
+                  key={vocab.label}
+                  className="p-3 rounded-lg bg-gray-50 dark:bg-[#07090b] border border-gray-200/80 dark:border-white/5 flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border uppercase ${vocab.badgeClass}`}>
+                      {vocab.label}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
+                    {vocab.meaning}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

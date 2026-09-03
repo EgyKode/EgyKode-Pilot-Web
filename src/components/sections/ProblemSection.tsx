@@ -137,12 +137,81 @@ export const ProblemSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-300 font-sans">
+            <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-sans">
               <span>Your application already contains the cues for what it needs. Pilot compiles that intent directly into cloud infrastructure.</span>
               <span className="font-mono text-[#22de7e]">Code → Pilot</span>
             </div>
           </div>
         )}
+
+        {/* The 5 Canonical Questions Framework */}
+        <div className="mt-8 max-w-5xl mx-auto">
+          <div className="text-center mb-6">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#047857] dark:text-[#22de7e] font-semibold block mb-1">
+              THE CANONICAL REASONING MODEL
+            </span>
+            <h3 className="text-lg sm:text-xl font-display font-bold text-gray-900 dark:text-white">
+              The Five Questions Pilot Answers
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {[
+              {
+                q: '01',
+                question: 'What is this application?',
+                answer: 'In-place AST parsing extracts runtime ports, language versions, health paths, and framework dependencies on disk.',
+                tag: 'LOCAL DISK SCAN'
+              },
+              {
+                q: '02',
+                question: 'What must it handle in production?',
+                answer: 'Translates declared intent — target concurrency, SLA uptime, multi-AZ resilience, and monthly budget ceilings.',
+                tag: 'INTENT BOUNDARY'
+              },
+              {
+                q: '03',
+                question: 'Which architecture fits requirements?',
+                answer: 'Deterministic engine compares topologies and evaluates database & compute shapes, enforcing hard feasibility first.',
+                tag: 'FEASIBILITY GATE'
+              },
+              {
+                q: '04',
+                question: 'Which exact files should be created?',
+                answer: 'Synthesizes auditable, modular Infrastructure as Code: Terraform HCL, AWS CDK, or Kubernetes manifests.',
+                tag: 'MODULAR IAC'
+              },
+              {
+                q: '05',
+                question: 'Can files be validated & safely delivered?',
+                answer: 'Runs automated syntax checks, provides live in-browser review overrides, and enforces human-approved delivery.',
+                tag: 'HUMAN APPROVAL'
+              }
+            ].map((item) => (
+              <div
+                key={item.q}
+                className="p-3.5 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 flex flex-col justify-between shadow-xs transition-colors duration-200"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-mono font-bold text-[#047857] dark:text-[#22de7e]">
+                      QUESTION {item.q}
+                    </span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/5">
+                      {item.tag}
+                    </span>
+                  </div>
+                  <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-2 leading-snug">
+                    {item.question}
+                  </h4>
+                  <p className="text-[11px] text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,10 @@
   "name": "egykode-pilot-web",
   "private": true,
   "version": "1.0.0",
+  "author": {
+    "name": "Waleed Darwesh",
+    "url": "https://linkedin.com/in/waleeddarwesh1/"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

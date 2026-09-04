@@ -1,0 +1,3 @@
+# EgyKode Pilot v0.1.0 Release Checksums (SHA-256)
+# Generated: 2026-09-03
+7fff646918c90523b83a6a8acb1e362884b602e2580706defdfb7cb37539df55  EgyKode-Pilot-0.1.0-x64.exe

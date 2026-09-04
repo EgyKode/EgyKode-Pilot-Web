@@ -145,68 +145,102 @@ export const ProblemSection: React.FC = () => {
         )}
 
         {/* The 5 Canonical Questions Framework */}
-        <div className="mt-8 max-w-5xl mx-auto">
-          <div className="text-center mb-6">
+        <div className="mt-12 max-w-7xl mx-auto">
+          <div className="text-center mb-8">
             <span className="text-[11px] font-mono uppercase tracking-widest text-[#047857] dark:text-[#22de7e] font-semibold block mb-1">
               THE CANONICAL REASONING MODEL
             </span>
-            <h3 className="text-lg sm:text-xl font-display font-bold text-gray-900 dark:text-white">
-              The Five Questions Pilot Answers
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-gray-900 dark:text-white">
+              The Five Questions EgyKode Pilot Answers
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {[
               {
-                q: '01',
-                question: 'What is this application?',
-                answer: 'In-place AST parsing extracts runtime ports, language versions, health paths, and framework dependencies on disk.',
-                tag: 'LOCAL DISK SCAN'
+                num: '01',
+                step: 'UNDERSTAND THE APPLICATION',
+                tag: 'LOCAL-FIRST ANALYSIS',
+                question: 'What did I build?',
+                description:
+                  'Pilot analyzes the source code and deployment evidence to understand the application as real production workloads — identifying languages, frameworks, runtimes, services, dependencies, ports, health checks, build commands, background jobs, databases, queues, storage, and existing DevOps configuration.',
+                result: 'A verified picture of what the application actually is.'
               },
               {
-                q: '02',
-                question: 'What must it handle in production?',
-                answer: 'Translates declared intent — target concurrency, SLA uptime, multi-AZ resilience, and monthly budget ceilings.',
-                tag: 'INTENT BOUNDARY'
+                num: '02',
+                step: 'UNDERSTAND THE INTENT',
+                tag: 'PRODUCTION REQUIREMENTS',
+                question: 'What does it need to handle in production?',
+                description:
+                  'Pilot turns business and production requirements into explicit constraints — including expected traffic, concurrency, availability, latency, growth, budget, security, data requirements, disaster recovery, operational preferences, cloud, and region.',
+                result: 'A measurable definition of what the architecture must achieve.'
               },
               {
-                q: '03',
-                question: 'Which architecture fits requirements?',
-                answer: 'Deterministic engine compares topologies and evaluates database & compute shapes, enforcing hard feasibility first.',
-                tag: 'FEASIBILITY GATE'
+                num: '03',
+                step: 'FIND THE BEST-FIT ARCHITECTURE',
+                tag: 'FEASIBILITY + OPTIMIZATION',
+                question: 'What architecture should run it?',
+                description:
+                  'Pilot evaluates feasible architecture compositions against the application’s workloads, requirements, provider capabilities, organizational policies, and cost — eliminating impossible options first, then comparing the remaining choices across cost, performance, availability, security, scalability, and operational complexity.',
+                result:
+                  'The best feasible architecture for the user’s actual requirements and budget — with the trade-offs and reasoning visible.'
               },
               {
-                q: '04',
-                question: 'Which exact files should be created?',
-                answer: 'Synthesizes auditable, modular Infrastructure as Code: Terraform HCL, AWS CDK, or Kubernetes manifests.',
-                tag: 'MODULAR IAC'
+                num: '04',
+                step: 'TURN THE DECISION INTO A SYSTEM',
+                tag: 'CANONICAL BLUEPRINT + GENERATION',
+                question: 'What exactly needs to exist?',
+                description:
+                  'Pilot converts the selected architecture into a canonical blueprint, then generates the infrastructure and operational artifacts required by that decision — including compute, networking, storage, databases, IAM, secrets, containers, Kubernetes or ECS resources, Terraform, CI/CD, security, observability, backups, documentation, and runtime configuration.',
+                result:
+                  'One architecture decision translated into a complete, traceable Cloud DevOps project.'
               },
               {
-                q: '05',
-                question: 'Can files be validated & safely delivered?',
-                answer: 'Runs automated syntax checks, provides live in-browser review overrides, and enforces human-approved delivery.',
-                tag: 'HUMAN APPROVAL'
+                num: '05',
+                step: 'PROVE IT BEFORE DELIVERY',
+                tag: 'VALIDATION + HUMAN CONTROL',
+                question: 'Can I trust what Pilot created?',
+                description:
+                  'Pilot validates the exact reviewed project for structural correctness, infrastructure consistency, security, cross-file dependencies, cost/component alignment, and available external tool checks — then presents the changes for review and keeps delivery under explicit human approval.',
+                result:
+                  'A validated, reviewable project that is ready to deliver — without hidden changes or unverified claims.'
               }
             ].map((item) => (
               <div
-                key={item.q}
-                className="p-3.5 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 flex flex-col justify-between shadow-xs transition-colors duration-200"
+                key={item.num}
+                className="p-4 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 flex flex-col justify-between shadow-sm hover:border-[#22de7e]/40 transition-all duration-200 group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono font-bold text-[#047857] dark:text-[#22de7e]">
-                      QUESTION {item.q}
+                  <div className="flex items-center justify-between mb-2 gap-1.5">
+                    <span className="text-[10px] font-mono font-bold text-[#047857] dark:text-[#22de7e] tracking-wider shrink-0">
+                      QUESTION {item.num}
                     </span>
-                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/5">
+                    <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/10 uppercase tracking-tight truncate">
                       {item.tag}
                     </span>
                   </div>
-                  <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-2 leading-snug">
+
+                  <div className="text-[11px] font-mono font-bold text-gray-400 dark:text-gray-300 uppercase tracking-wide mb-2 leading-tight">
+                    {item.step}
+                  </div>
+
+                  <h4 className="text-sm font-display font-bold text-gray-900 dark:text-white mb-2 leading-snug group-hover:text-[#047857] dark:group-hover:text-[#22de7e] transition-colors">
                     {item.question}
                   </h4>
-                  <p className="text-[11px] text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
-                    {item.answer}
+
+                  <p className="text-[11px] text-gray-600 dark:text-gray-400 font-sans leading-relaxed mb-4">
+                    {item.description}
                   </p>
+                </div>
+
+                <div className="pt-3 mt-auto border-t border-gray-200/60 dark:border-white/5">
+                  <div className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#047857] dark:text-[#22de7e] mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#047857] dark:bg-[#22de7e]"></span>
+                    Result
+                  </div>
+                  <div className="text-[11px] font-sans font-medium text-gray-800 dark:text-gray-200 leading-snug">
+                    {item.result}
+                  </div>
                 </div>
               </div>
             ))}

@@ -48,15 +48,15 @@ Day-2 read-only operations & drift visibility
 
 ---
 
-## 🎯 The Five Questions Pilot Answers
+## 🎯 The Canonical Reasoning Model: The Five Questions EgyKode Pilot Answers
 
-| # | Question | How Pilot Resolves It |
-|---|---|---|
-| **1** | **What is this application?** | Parses AST, manifests, package descriptors, Dockerfiles, and runtime ports in place on disk with zero cloud egress. |
-| **2** | **What must it handle in production?** | Ingests business intent: target budget, RPS concurrency, uptime SLAs, multi-AZ requirements, and compliance. |
-| **3** | **Which architecture fits its requirements & budget?** | Matches detected workloads to deterministic cloud archetypes with mathematically verified catalog pricing. |
-| **4** | **Which exact files should be created or modified?** | Emits clean, production-grade Infrastructure as Code (Terraform HCL, AWS CDK TypeScript, or Kubernetes manifests). |
-| **5** | **Can those files be validated and safely delivered?** | Executes automated syntax checks, provides live in-browser overrides, and enforces human-approved delivery boundaries. |
+| # | Step & Mechanism | Core Question | Pilot Analysis | Verified Result |
+|---|---|---|---|---|
+| **01** | **Understand the Application**<br>`LOCAL-FIRST ANALYSIS` | **What did I build?** | Analyzes source code and deployment evidence to understand the application as real production workloads — identifying languages, frameworks, runtimes, services, dependencies, ports, health checks, build commands, background jobs, databases, queues, storage, and DevOps config. | A verified picture of what the application actually is. |
+| **02** | **Understand the Intent**<br>`PRODUCTION REQUIREMENTS` | **What does it need to handle in production?** | Turns business and production requirements into explicit constraints — expected traffic, concurrency, availability, latency, growth, budget, security, data requirements, disaster recovery, operational preferences, cloud, and region. | A measurable definition of what the architecture must achieve. |
+| **03** | **Find the Best-Fit Architecture**<br>`FEASIBILITY + OPTIMIZATION` | **What architecture should run it?** | Evaluates feasible architecture compositions against workloads, requirements, provider capabilities, organizational policies, and cost — eliminating impossible options first, then comparing remaining choices across cost, performance, availability, security, scalability, and complexity. | The best feasible architecture for actual requirements and budget — with trade-offs and reasoning visible. |
+| **04** | **Turn the Decision into a System**<br>`CANONICAL BLUEPRINT + GENERATION` | **What exactly needs to exist?** | Converts selected architecture into a canonical blueprint, then generates infrastructure and operational artifacts — compute, networking, storage, databases, IAM, secrets, containers, K8s/ECS, Terraform, CI/CD, security, observability, backups, documentation, and runtime config. | One architecture decision translated into a complete, traceable Cloud DevOps project. |
+| **05** | **Prove it Before Delivery**<br>`VALIDATION + HUMAN CONTROL` | **Can I trust what Pilot created?** | Validates the exact reviewed project for structural correctness, infrastructure consistency, security, cross-file dependencies, cost alignment, and available tool checks — then presents changes for review under explicit human approval. | A validated, reviewable project that is ready to deliver — without hidden changes or unverified claims. |
 
 ---
 
@@ -259,6 +259,6 @@ egykode-pilot-web/
 
 <div align="center">
 
-Made with ❤️ by the **[EgyKode](https://egykode.com)** team.
+Created by **[Waleed Darwesh](https://linkedin.com/in/waleeddarwesh1/)**.
 
 </div>

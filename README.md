@@ -162,7 +162,7 @@ Nothing is provisioned automatically without explicit developer consent. Pilot o
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/Waleeddarwesh/EgyKode-Pilot-Web.git
+git clone https://github.com/EgyKode/EgyKode-Pilot-Web.git
 cd EgyKode-Pilot-Web
 npm install
 ```
@@ -252,8 +252,8 @@ egykode-pilot-web/
 ## 🔗 The EgyKode Ecosystem
 
 - **[EgyKode Platform](https://egykode.com):** The open-source Cloud & DevOps learning platform with structured chapters, roadmaps, and hands-on labs.
-- **[EgyKode GitHub](https://github.com/Waleeddarwesh/EgyKode):** Core learning platform monorepo.
-- **[EgyKode Pilot Web](https://pilot.egykode.com):** The official web interface and architectural compiler product experience.
+- **[EgyKode Academy](https://github.com/EgyKode/EgyKode-Academy):** Core learning platform repository.
+- **[EgyKode Pilot Web repository](https://github.com/EgyKode/EgyKode-Pilot-Web):** Source for the official web interface and architectural compiler product experience.
 
 ---
 

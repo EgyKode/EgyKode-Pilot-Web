@@ -25,7 +25,7 @@ export const PILOT_RELEASE: ReleaseMetadata = {
   releaseDate: '2026-09-03',
   cliPackage: '@egykode/pilot',
   cliQuickStart: 'npx @egykode/pilot ./my-repo',
-  githubRepo: 'https://github.com/Waleeddarwesh/EgyKode-Pilot-releases',
+  githubRepo: 'https://github.com/EgyKode/EgyKode-Pilot-releases',
   artifacts: {
     windows: {
       platform: 'windows',

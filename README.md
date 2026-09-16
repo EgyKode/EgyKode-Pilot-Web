@@ -8,7 +8,7 @@
 
 Turn application source code into an explained, cost-aware, editable, validated, and safely deliverable Cloud DevOps implementation.
 
-**[pilot.egykode.com](https://pilot.egykode.com)** · [Parent Platform (egykode.com)](https://egykode.com) · [The Five Questions](#-the-five-questions-pilot-answers) · [Trust Vocabulary](#-trust--status-vocabulary) · [Pipeline](#-the-end-to-end-compiler-pipeline) · [Infrastructure](#-production-infrastructure) · [Quick Start](#-quick-start)
+**[pilot.egykode.com](https://pilot.egykode.com)** · [EgyKode company](https://egykode.com) · [EgyKode Academy](https://academy.egykode.com) · [The Five Questions](#-the-five-questions-pilot-answers) · [Trust Vocabulary](#-trust--status-vocabulary) · [Pipeline](#-the-end-to-end-compiler-pipeline) · [Infrastructure](#-production-infrastructure) · [Quick Start](#-quick-start)
 
 [![Live Site](https://img.shields.io/badge/live-pilot.egykode.com-22de7e?style=flat-square)](https://pilot.egykode.com)
 [![Platform: EgyKode](https://img.shields.io/badge/platform-egykode.com-1fe881?style=flat-square)](https://egykode.com)
@@ -150,7 +150,8 @@ Nothing is provisioned automatically without explicit developer consent. Pilot o
 | **SSL/TLS Certificate** | AWS ACM `112527a1-c606-4e58-833a-dcc4b4ff8d30` | ✅ Issued (`pilot.egykode.com`) |
 | **Cloudflare DNS** | CNAME `pilot.egykode.com` → CloudFront | ✅ DNS-Only (`proxied: false`) |
 | **CI/CD Role** | `arn:aws:iam::991216470475:role/egykode-pilot-github-deploy` | ✅ Keyless OIDC authentication |
-| **Main Site Isolation** | [egykode.com](https://egykode.com) | ✅ 100% Isolated & Untouched |
+| **EgyKode company site** | [egykode.com](https://egykode.com) | ✅ Commercial company site |
+| **Academy site** | [academy.egykode.com](https://academy.egykode.com) | ⏳ Target after the domain cutover |
 
 ---
 
@@ -251,7 +252,8 @@ egykode-pilot-web/
 
 ## 🔗 The EgyKode Ecosystem
 
-- **[EgyKode Platform](https://egykode.com):** The open-source Cloud & DevOps learning platform with structured chapters, roadmaps, and hands-on labs.
+- **[EgyKode company](https://egykode.com):** The IT and technology company behind the product, services, and consulting portfolio.
+- **[EgyKode Academy](https://academy.egykode.com):** The open-source Cloud & DevOps learning platform with structured chapters, roadmaps, and hands-on labs.
 - **[EgyKode Academy](https://github.com/EgyKode/EgyKode-Academy):** Core learning platform repository.
 - **[EgyKode Pilot Web repository](https://github.com/EgyKode/EgyKode-Pilot-Web):** Source for the official web interface and architectural compiler product experience.
 

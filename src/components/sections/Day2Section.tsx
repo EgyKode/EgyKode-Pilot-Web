@@ -59,8 +59,8 @@ export const Day2Section: React.FC = () => {
             </div>
 
             <div className="p-3.5 rounded bg-[#0b0e11] border border-white/5 flex items-center justify-between text-xs font-mono text-gray-400">
-              <span>Read-only metrics queried from CloudWatch APIs</span>
-              <span className="text-gray-300">Continuous Drift & Cost Monitoring</span>
+              <span>Read-only: a connected cluster, Prometheus and AWS Cost Explorer</span>
+              <span className="text-gray-300">Rollout, Golden Signals & Month-to-Date Spend</span>
             </div>
           </div>
         </div>

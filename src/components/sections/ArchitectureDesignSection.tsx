@@ -75,7 +75,7 @@ export const ArchitectureDesignSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-white/10 gap-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-mono text-[#22de7e] uppercase">ARCHITECTURAL DECISION RECORD</span>
+                  <span className="text-xs font-mono text-[#22de7e] uppercase">WHY THIS OPTION</span>
                   {selectedCandidate.recommended && (
                     <span className="badge-confirmed text-[10px]">OPTIMAL FEASIBLE ANSWER</span>
                   )}

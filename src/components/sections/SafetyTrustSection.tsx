@@ -13,7 +13,7 @@ export const SafetyTrustSection: React.FC = () => {
   ];
 
   const guarantees = [
-    { title: 'Zero Invented Prices', desc: 'Costs are calculated from exact cloud provider pricing catalogs; unknown items are never treated as $0.' },
+    { title: 'Zero Invented Prices', desc: 'Costs come from a captured AWS rate snapshot or live AWS prices you refresh; unknown items are never treated as $0.' },
     { title: 'Zero Invented Secrets', desc: 'Pilot never generates dummy passwords or fake API keys; it provisions AWS Secrets Manager placeholders.' },
     { title: 'Zero Hidden Changes', desc: 'Every architectural modification is output as a readable diff in your PR branch.' },
     { title: 'Zero Silent Replacement', desc: 'Existing Dockerfiles and CI scripts remain untouched unless explicitly flagged for replacement.' },
@@ -102,7 +102,7 @@ export const SafetyTrustSection: React.FC = () => {
 
             <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-400">
               <span>Decision recorded in Canonical Blueprint</span>
-              <span className="text-[#22de7e]">Zero Hallucination Guaranteed</span>
+              <span className="text-[#22de7e]">No Model Decides the Plan</span>
             </div>
           </div>
 
@@ -166,7 +166,7 @@ export const SafetyTrustSection: React.FC = () => {
                 },
                 {
                   label: 'Local',
-                  meaning: 'The operation occurs 100% on your machine with zero cloud egress.',
+                  meaning: 'The operation runs on your machine and sends nothing.',
                   badgeClass: 'text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30'
                 }
               ].map((vocab) => (

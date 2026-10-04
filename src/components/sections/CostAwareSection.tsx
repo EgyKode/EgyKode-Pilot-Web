@@ -104,20 +104,20 @@ export const CostAwareSection: React.FC = () => {
               <div className="p-4 rounded bg-yellow-500/10 border border-yellow-500/30 text-xs font-mono text-yellow-300 flex items-center justify-between animate-in fade-in duration-200">
                 <div className="flex items-center gap-2">
                   <IconAlertTriangle size={16} />
-                  <span>5× Traffic Impact: ECS Fargate auto-scales from 2 to 6 tasks; Aurora DB ACU increases to 1.8. Total spend: $271.90/mo.</span>
+                  <span>5× Traffic Impact: ECS Fargate auto-scales from 2 to 6 tasks; the database moves up one instance size. Total spend: $271.90/mo.</span>
                 </div>
                 <span className="text-[10px] text-yellow-400 font-bold uppercase">Dynamic Response</span>
               </div>
             ) : (
               <div className="p-3.5 rounded bg-[#0b0e11] border border-white/5 flex items-center justify-between text-xs font-mono text-gray-400">
-                <span>Baseline: 3 workloads distributed over Dual-AZ ECS Fargate + Aurora Serverless.</span>
+                <span>Baseline: 3 workloads distributed over Dual-AZ ECS Fargate + RDS PostgreSQL.</span>
                 <span className="text-[#22de7e] flex items-center gap-1"><IconCheck size={14} /> Within $150 Budget Ceiling</span>
               </div>
             )}
 
             {/* Honest Demo Disclaimer */}
             <div className="mt-4 text-center text-[11px] font-mono text-gray-500">
-              * Illustrative product visualization derived from AWS US-East-1 pricing indices. Pilot recalculates exact regional rates for each target.
+              * Illustrative product visualization derived from AWS US-East-1 pricing indices. Pilot prices from a captured AWS rate snapshot, or live AWS prices when you refresh them.
             </div>
           </div>
         </div>

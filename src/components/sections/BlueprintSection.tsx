@@ -10,13 +10,13 @@ export const BlueprintSection: React.FC = () => {
       id: 'terraform',
       title: 'Terraform IaC',
       file: 'terraform/main.tf',
-      desc: 'Dual-AZ VPC, ECS Fargate modules, and Aurora serverless cluster declared in declarative HCL.'
+      desc: 'Dual-AZ VPC, ECS Fargate modules and an RDS PostgreSQL database declared in Terraform.'
     },
     {
       id: 'kubernetes',
       title: 'Kubernetes Specs',
       file: 'k8s/deployment.yaml',
-      desc: 'Rolling update strategy, resource requests & limits, and readiness probes matched to AST specs.'
+      desc: 'Rolling update strategy, resource requests & limits, and readiness probes matched to the scanned runtime contract.'
     },
     {
       id: 'iam',
@@ -32,9 +32,9 @@ export const BlueprintSection: React.FC = () => {
     },
     {
       id: 'docs',
-      title: 'Architecture Record',
-      file: 'docs/ARCHITECTURE.md',
-      desc: 'Comprehensive ADR recording why ECS won, budget analysis, and rejected alternatives.'
+      title: 'Decision Reasons',
+      file: 'Shown in Pilot',
+      desc: 'Why ECS won, the budget analysis and the rejected alternatives, shown in Pilot for review.'
     }
   ];
 

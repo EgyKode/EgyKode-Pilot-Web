@@ -207,7 +207,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
                 </div>
 
                 <div className="p-2.5 rounded bg-gray-50 dark:bg-[#0f1316] border border-gray-200/80 dark:border-white/5 text-[11px] text-gray-600 dark:text-gray-400 flex items-center justify-between">
-                  <span>Static AST Analysis: Zero remote code egress</span>
+                  <span>Rule-based analysis on your machine</span>
                   <span className="text-[#047857] dark:text-[#22de7e] font-semibold">Reads local files in place...</span>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
 
                   <div className="p-3 rounded bg-[#0b0e11] border border-white/10">
                     <span className="text-[10px] text-gray-500 block mb-1">DATABASE TIER</span>
-                    <div className="text-white font-medium">Amazon Aurora RDS</div>
+                    <div className="text-white font-medium">Amazon RDS PostgreSQL</div>
                     <div className="text-gray-400 text-[11px] mt-0.5">PostgreSQL Serverless v2</div>
                   </div>
 
@@ -346,7 +346,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div>
                     <span className="text-[10px] text-[#22de7e] block uppercase">05 · PRE-FLIGHT VERIFICATION</span>
-                    <div className="text-sm font-semibold text-white">7 of 7 Invariants Verified ✓</div>
+                    <div className="text-sm font-semibold text-white">Validated · skipped checks shown as skipped</div>
                   </div>
                   <span className="badge-confirmed text-[10px]">READY FOR GIT PR</span>
                 </div>

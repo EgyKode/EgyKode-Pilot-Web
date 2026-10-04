@@ -14,7 +14,7 @@ export const ValidationSection: React.FC = () => {
           sceneNumber="SCENE 13"
           category="PRE-FLIGHT VALIDATION"
           title="Don't trust generated infrastructure. Verify it."
-          subtitle="Pilot refuses to emit unverified code. Every generated artifact passes through a 7-stage deterministic verification pipeline ensuring security, consistency, and zero syntax errors."
+          subtitle="Pilot validates the exact files it generated with the real tools before you can deliver them. A failure blocks delivery; a check whose tool is not installed is shown as skipped, never as passed."
         />
 
         <div className="max-w-5xl mx-auto">
@@ -24,7 +24,7 @@ export const ValidationSection: React.FC = () => {
               <div className="flex items-center gap-2">
                 <IconShieldCheck size={18} className="text-[#22de7e]" />
                 <span className="text-xs font-mono font-semibold text-white uppercase">
-                  INTEGRITY VERIFICATION GATES (7 OF 7 PASSED)
+                  VALIDATION OF THE EXACT FILES (EXAMPLE)
                 </span>
               </div>
               <span className="badge-confirmed text-xs">

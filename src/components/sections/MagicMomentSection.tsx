@@ -46,7 +46,7 @@ export const MagicMomentSection: React.FC = () => {
           sceneNumber="SCENE 03"
           category="THE MAGIC MOMENT"
           title="Point to a local folder or Git repo. Watch Pilot understand it."
-          subtitle="Pilot executes deterministic static analysis directly on your machine. Open any local project directory from your disk or clone a Git repo — Pilot parses your code in place with zero file modifications and zero cloud egress."
+          subtitle="Pilot executes deterministic static analysis directly on your machine. Open any local project directory from your disk or clone a Git repo — Pilot parses your code in place, changes nothing, and sends nothing."
         />
 
         {/* Interactive Scanner Product Surface */}
@@ -128,7 +128,7 @@ export const MagicMomentSection: React.FC = () => {
           {/* Scanner Product Window */}
           <ProductWindow
             title={sourceType === 'local' ? 'local://~/projects/shop-microservices' : 'git://github.com/acme/shop-microservices'}
-            badge={isScanning ? 'SCANNING AST' : sourceType === 'local' ? 'LOCAL FOLDER SCAN · IN-PLACE' : 'CLONED WORKSPACE SCAN'}
+            badge={isScanning ? 'SCANNING' : sourceType === 'local' ? 'LOCAL FOLDER SCAN · IN-PLACE' : 'CLONED WORKSPACE SCAN'}
             badgeType={isScanning ? 'warning' : 'success'}
           >
             {isScanning ? (
@@ -136,7 +136,7 @@ export const MagicMomentSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-full border-2 border-[#059669] dark:border-[#22de7e] border-t-transparent animate-spin mx-auto"></div>
                 <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   {sourceType === 'local'
-                    ? 'Reading local files in place on disk with zero egress...'
+                    ? 'Reading local files in place on disk...'
                     : 'Cloning repository into isolated local sandbox for static inspection...'}
                 </div>
                 <div className="text-xs text-gray-500 max-w-md mx-auto">
@@ -205,7 +205,7 @@ export const MagicMomentSection: React.FC = () => {
                         </h4>
                       </div>
                       <span className="text-[11px] font-mono text-[#047857] dark:text-[#22de7e] bg-[#ecfdf5] dark:bg-[#22de7e]/10 px-2.5 py-1 rounded border border-[#a7f3d0] dark:border-[#22de7e]/20 flex items-center gap-1 font-semibold">
-                        <IconCheck size={12} /> AST VERIFIED
+                        <IconCheck size={12} /> EVIDENCE FOUND
                       </span>
                     </div>
 
@@ -266,7 +266,7 @@ export const MagicMomentSection: React.FC = () => {
                   <div className="mt-6 pt-4 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-[#047857] dark:bg-[#22de7e] shrink-0"></span>
-                      <span>Zero-egress analysis: No code leaves your machine</span>
+                      <span>The scan runs on your machine; nothing is sent</span>
                     </span>
                     <span className="text-[#047857] dark:text-[#22de7e] font-semibold">
                       {sourceType === 'local' ? 'Read-only local disk scan' : 'Private local clone'}

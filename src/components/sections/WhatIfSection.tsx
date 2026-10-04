@@ -12,19 +12,19 @@ export const WhatIfSection: React.FC = () => {
   let estimatedCost = 82;
   let archTitle = 'Cost-Optimized Fargate';
   let computeReplicas = 2;
-  let dbStrategy = 'Aurora Serverless Single-AZ (0.5 ACU)';
+  let dbStrategy = 'RDS PostgreSQL Single-AZ (db.t4g.micro)';
   let warningMessage: string | null = null;
 
   if (targetSla === '99.99%') {
     estimatedCost = 143;
     archTitle = 'High-Performance Resilient Cluster';
     computeReplicas = 4;
-    dbStrategy = 'Aurora PostgreSQL Multi-AZ + AZ-3 Read Replica';
+    dbStrategy = 'RDS PostgreSQL Multi-AZ + read replica';
   } else if (targetSla === '99.95%') {
     estimatedCost = 104;
     archTitle = 'Balanced Multi-AZ ECS Fargate';
     computeReplicas = 2;
-    dbStrategy = 'Aurora PostgreSQL Multi-AZ Serverless v2';
+    dbStrategy = 'RDS PostgreSQL Multi-AZ';
   }
 
   // Adjust for traffic

@@ -8,7 +8,7 @@ export const FeatureSystemSection: React.FC = () => {
     {
       phase: '01 / UNDERSTAND',
       title: 'Application Intelligence',
-      desc: 'Deep local AST scanning that models your real code rather than guessing from README files.',
+      desc: 'Local, rule-based analysis of your manifests, Dockerfiles and source rather than guessing from README files.',
       items: [
         'Polyglot Languages (Python, TypeScript, Go, Java, Rust)',
         'Modern Frameworks (FastAPI, Spring Boot, React, Next.js)',
@@ -23,7 +23,7 @@ export const FeatureSystemSection: React.FC = () => {
       desc: 'Translating business intents and budget ceilings into the best feasible cloud topology.',
       items: [
         'Multi-AZ Compute Topologies (ECS, EKS, Serverless)',
-        'Managed Data Stores (Aurora, DynamoDB, Redis)',
+        'Managed Data Stores (RDS PostgreSQL, ElastiCache Redis)',
         'Egress & Ingress Boundary Verification',
         'Transparent Trade-off & Cost Explanation Records',
         'Automatic Availability Invariant Enforcement'
@@ -36,9 +36,9 @@ export const FeatureSystemSection: React.FC = () => {
       items: [
         'Modular Terraform HCL (Zero monolithic state)',
         'Production Kubernetes Manifests with Probes',
-        'Least-Privilege IAM Policies (No wildcards)',
+        'Least-Privilege IAM Policies (no wildcard actions)',
         'GitHub Actions OIDC Keyless Deploy Pipelines',
-        'Automated Architecture Decision Records (ADRs)'
+        'Reasons and Rejected Alternatives for Every Choice'
       ]
     },
     {
@@ -61,7 +61,7 @@ export const FeatureSystemSection: React.FC = () => {
         'Inspectable Git Branch Generation',
         'Reviewable GitHub Pull Requests with Plan Diffs',
         'Local Workspace Directory Export',
-        'Zero-Egress Local Analysis by Default',
+        'Local Analysis; Nothing Sent Without Your Approval',
         'Human Approval Mandatory Before Deployment'
       ]
     }

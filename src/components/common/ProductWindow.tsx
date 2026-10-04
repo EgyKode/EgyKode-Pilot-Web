@@ -43,6 +43,7 @@ export const ProductWindow: React.FC<ProductWindowProps> = ({
           <span className="text-xs font-mono text-gray-500 dark:text-gray-400 ml-2 tracking-wide flex items-center gap-1.5 min-w-0 truncate">
             <span className="text-[#059669] dark:text-[#22de7e] font-semibold shrink-0">pilot://</span>
             <span className="truncate">{title}</span>
+            <span className="shrink-0 text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500">· Example</span>
           </span>
         </div>
 

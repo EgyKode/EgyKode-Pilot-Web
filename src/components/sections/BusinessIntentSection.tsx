@@ -157,7 +157,7 @@ export const BusinessIntentSection: React.FC = () => {
                   </div>
                   <p className="text-gray-300 font-sans text-xs">
                     {availability === '99.99%'
-                      ? 'Triple-AZ redundant tasks with Multi-AZ Aurora and Global Accelerator required for 99.99% SLA.'
+                      ? 'Triple-AZ redundant tasks with a Multi-AZ RDS database required for 99.99% SLA.'
                       : 'Dual-AZ deployment behind ALB satisfies ' + availability + ' SLA without idle standby waste.'}
                   </p>
                 </div>

@@ -4,7 +4,7 @@ import { IconCheck } from '../common/Icons';
 export const TransformationSection: React.FC = () => {
   const steps = [
     { label: 'SOURCE CODE', sub: 'Polyglot Repo' },
-    { label: '3 WORKLOADS', sub: 'AST Discovered' },
+    { label: '3 WORKLOADS', sub: 'Found in the Source' },
     { label: 'REQUIREMENTS', sub: 'Business SLA & Budget' },
     { label: '3 ARCHITECTURES', sub: 'Evaluated Options' },
     { label: 'BEST FIT', sub: 'Dual-AZ Fargate' },

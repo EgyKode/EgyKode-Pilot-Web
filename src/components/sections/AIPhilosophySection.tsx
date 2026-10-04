@@ -30,7 +30,7 @@ export const AIPhilosophySection: React.FC = () => {
                 Absolute System Authority
               </h3>
               <p className="text-xs text-gray-400 font-sans leading-relaxed mb-4">
-                Strict, typed algorithms govern every mathematical calculation, resource sizing formula, and security policy. Zero hallucinations permitted.
+                Strict, typed algorithms govern every mathematical calculation, resource sizing formula, and security policy. No model decides any of them.
               </p>
 
               <ul className="space-y-2.5 font-mono text-xs text-gray-300">
@@ -44,11 +44,11 @@ export const AIPhilosophySection: React.FC = () => {
                 </li>
                 <li className="p-2.5 rounded bg-[#0b0e11] border border-white/5 flex items-center gap-2">
                   <IconCheck size={14} className="text-[#22de7e] flex-shrink-0" />
-                  <span>Zero-wildcard least-privilege IAM compilation</span>
+                  <span>Least-privilege IAM with no wildcard actions</span>
                 </li>
                 <li className="p-2.5 rounded bg-[#0b0e11] border border-white/5 flex items-center gap-2">
                   <IconCheck size={14} className="text-[#22de7e] flex-shrink-0" />
-                  <span>7-stage pre-flight invariant validation gates</span>
+                  <span>Validation of the exact files before delivery</span>
                 </li>
               </ul>
             </div>
@@ -87,7 +87,7 @@ export const AIPhilosophySection: React.FC = () => {
                 </li>
                 <li className="p-2.5 rounded bg-[#0b0e11] border border-white/5 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8]"></span>
-                  <span>Local AST privacy: Zero repository code sent to remote LLMs</span>
+                  <span>AI is off by default; a local model keeps code on your machine</span>
                 </li>
               </ul>
             </div>

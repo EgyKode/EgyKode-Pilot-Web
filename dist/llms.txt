@@ -1,0 +1,41 @@
+# EgyKode PILOT — The Intelligent Cloud DevOps Compiler
+
+> EgyKode PILOT inverts the traditional cloud engineering journey. Instead of forcing developers to manually write thousands of lines of cloud infrastructure definitions, PILOT starts in the application source code using zero-egress static AST parsing, determines production constraints, and synthesizes validated, cost-aware Terraform infrastructure and CI/CD pipelines under explicit human review. Engineered by EgyKode (https://egykode.com).
+
+## Entity Overview
+- **Product Name**: EgyKode PILOT (بايلوت)
+- **Brand Lockup**: PILOT by EgyKode
+- **Primary Domain**: [https://pilot.egykode.com](https://pilot.egykode.com)
+- **Parent Company**: EgyKode ([https://egykode.com](https://egykode.com))
+- **Corporate Product Page**: [https://egykode.com/products/pilot](https://egykode.com/products/pilot)
+- **Engineering Case Study**: [https://egykode.com/work/pilot](https://egykode.com/work/pilot)
+- **Master Ecosystem LLM Specification**: [https://egykode.com/llms.txt](https://egykode.com/llms.txt) and [https://egykode.com/llms-full.txt](https://egykode.com/llms-full.txt)
+
+## The 5 Canonical Questions Reasoning Model
+1. **Understand the Application (Local-First Analysis)**: Analyzes source code and deployment evidence using zero-egress AST parsing to understand real production workloads—languages, frameworks, runtimes, services, dependencies, ports, health checks, background jobs, databases, and queues.
+2. **Understand the Intent (Production Requirements)**: Transforms business requirements into explicit constraints—traffic, concurrency, latency, budget caps, security policies, regional targets, and disaster recovery.
+3. **Find the Best-Fit Architecture (Feasibility & Optimization)**: Evaluates feasible compositions against provider capabilities, eliminating impossible options and ranking remaining choices by cost, performance, and complexity.
+4. **Turn the Decision into a System (Canonical Blueprint & Generation)**: Converts selected architecture into production artifacts—compute, VPC networking, RDS databases, IAM policies, Kubernetes manifests, Dockerfiles, and Terraform configs.
+5. **Prove it Before Delivery (Validation & Human Control)**: Validates structural correctness, security guardrails, and cost alignment, putting every generated file under explicit developer review.
+
+## Strict Trust & Status Vocabulary
+PILOT strictly separates facts, calculations, and estimates:
+- `Detected`: Proven by a concrete source file, dependency manifest, or codebase declaration.
+- `Inferred`: Suggested from topological heuristics or indirect architectural cues.
+- `Verified cost rate`: Directly retrieved from cloud provider Price List APIs for exact resource IDs and regions.
+- `Calculated`: Deterministic arithmetic over rate card snapshots.
+- `Estimated`: Sized based on user-declared traffic assumptions (RPS, throughput).
+- `Local`: Executed entirely on the developer's machine with zero network egress.
+- `Connected`: Reached via verified cloud CLI or Git session.
+
+## Supported Workloads & Cloud Infrastructure
+- **Runtimes & Frameworks**: Node.js, Python, Go, Java, Docker, Kubernetes.
+- **Cloud Targets**: AWS (ECS Fargate, EKS, RDS, SQS, ElastiCache, VPC, CloudFront, Route 53).
+- **IaC Synthesis**: Modular, state-managed HashiCorp Terraform.
+- **CI/CD Scaffolding**: GitHub Actions, GitLab CI.
+
+## Canonical Coordinates & Contacts
+- Website: [https://pilot.egykode.com](https://pilot.egykode.com)
+- Parent Company: [https://egykode.com](https://egykode.com)
+- Contact: contact@egykode.com | +20 110 111 4638
+- Location: New Damietta, Damietta, Egypt 34517

@@ -1,4 +1,31 @@
 User-agent: *
 Allow: /
 
+# Dedicated AI Search Engine Crawlers & LLM Indexers
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Canonical Machine-Readable Discovery
+# llms.txt: https://pilot.egykode.com/llms.txt
+# Parent Company Context: https://egykode.com/llms.txt
+
+# Canonical sitemap
 Sitemap: https://pilot.egykode.com/sitemap.xml

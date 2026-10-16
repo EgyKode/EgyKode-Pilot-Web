@@ -1,21 +1,5 @@
-# EgyKode Pilot — Windows Installer Script
-# From Code to Cloud.
-$ErrorActionPreference = "Stop"
-
-Write-Host ""
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host "   EgyKode Pilot — Cloud DevOps Compiler" -ForegroundColor Green
-Write-Host "   From Code to Cloud." -ForegroundColor DarkGray
-Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host ""
-
-$installerUrl = "https://pilot.egykode.com/downloads/EgyKode-Pilot-0.1.0-x64.exe"
-$destPath = "$env:TEMP\EgyKode-Pilot-Setup.exe"
-
-Write-Host "[1/2] Downloading latest desktop installer..." -ForegroundColor Yellow
-Invoke-WebRequest -Uri $installerUrl -OutFile $destPath -UseBasicParsing
-
-Write-Host "[2/2] Launching installer..." -ForegroundColor Green
-Start-Process -FilePath $destPath
-
-Write-Host "Setup initialized. Complete installation in the window." -ForegroundColor Cyan
+# EgyKode Pilot is not available for download yet.
+# No installer has been published, so this script downloads and runs nothing. It does not call
+# `exit`: run as `iwr ... | iex` that would close the caller's own PowerShell session.
+Write-Host "EgyKode Pilot is not available for download yet. Nothing was downloaded or installed."
+Write-Host "See https://pilot.egykode.com for release news."

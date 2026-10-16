@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/brand/pilot-mark.png" alt="EgyKode Pilot" width="84" height="84">
+<img src="public/brand/pilot-mark.png" alt="EgyKode Pilot" width="69" height="96">
 
 # EgyKode / Pilot
 

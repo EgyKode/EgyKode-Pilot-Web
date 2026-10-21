@@ -1,10 +1,11 @@
 # EgyKode PILOT — The Intelligent Cloud DevOps Compiler
 
-> EgyKode PILOT inverts the traditional cloud engineering journey. Instead of forcing developers to manually write thousands of lines of cloud infrastructure definitions, PILOT starts in the application source code using zero-egress static AST parsing, determines production constraints, and synthesizes validated, cost-aware Terraform infrastructure and CI/CD pipelines under explicit human review. Engineered by EgyKode (https://egykode.com).
+> EgyKode PILOT inverts the traditional cloud engineering journey. Instead of forcing developers to manually write thousands of lines of cloud infrastructure definitions, PILOT starts in the application source code using zero-egress static AST parsing, determines production constraints, and synthesizes validated, cost-aware Terraform infrastructure and CI/CD pipelines under explicit human review. Engineered by EgyKode (https://egykode.com) as one of its three Flagship Software Products.
 
 ## Entity Overview
 - **Product Name**: EgyKode PILOT (بايلوت)
 - **Brand Lockup**: PILOT by EgyKode
+- **Strategic Classification**: One of EgyKode's three **Flagship Software Products** (alongside ProcMarts and EgyKode Care).
 - **Primary Domain**: [https://pilot.egykode.com](https://pilot.egykode.com)
 - **Parent Company**: EgyKode ([https://egykode.com](https://egykode.com))
 - **Corporate Product Page**: [https://egykode.com/products/pilot](https://egykode.com/products/pilot)

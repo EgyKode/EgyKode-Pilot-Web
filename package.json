@@ -9,8 +9,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-ssg.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test:ssg": "node scripts/verify-ssg.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

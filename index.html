@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="light">
+<html lang="en" dir="ltr" class="dark">
   <head>
     <meta charset="UTF-8" />
     <script>
       (function() {
         try {
           var saved = localStorage.getItem('pilot_theme_v2');
-          if (saved === 'dark') {
-            document.documentElement.classList.add('dark');
-            document.documentElement.classList.remove('light');
-          } else {
+          if (saved === 'light') {
             document.documentElement.classList.add('light');
             document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
           }
         } catch (e) {}
       })();

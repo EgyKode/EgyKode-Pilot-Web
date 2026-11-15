@@ -47,11 +47,11 @@ export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose })
         </div>
 
         <p className="text-sm text-gray-300 font-sans mb-3 leading-relaxed">
-          Downloads are not available yet. No installer, package or install script is published for
-          Windows, macOS or Linux.
+          Downloads are not available yet. The Windows beta is planned for Microsoft Store.
+          Windows is the only public beta target; Linux and macOS are not included.
         </p>
         <p className="text-sm text-gray-400 font-sans leading-relaxed">
-          When a release is ready it will be listed here with its checksums. Until then, an installer,
+          After approval and Microsoft Store certification, the Store listing will be linked here. Until then, an installer,
           npm package or install command offered under this name did not come from us.
         </p>
       </div>

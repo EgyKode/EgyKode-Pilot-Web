@@ -14,6 +14,17 @@ interface GetPilotModalProps {
  * served file, the npm package does not exist, and the scripts ran what they fetched without a
  * hash check. Nothing is offered here until a signed release and its checksums exist.
  */
+/*
+ * Availability as verified for 0.1.1 (Pilot reports/beta-release/PLATFORM-VALIDATION-MATRIX.md).
+ * Change a row only when that matrix does: no platform is offered here before its native test.
+ */
+const PLATFORMS: { name: string; status: string; detail: string }[] = [
+  { name: 'Windows (x64)', status: 'Invited beta', detail: 'portable ZIP, unsigned; tested on Windows 11' },
+  { name: 'Microsoft Store', status: 'Planned', detail: 'after Store certification' },
+  { name: 'Linux', status: 'Testing', detail: 'AppImage, DEB, RPM; desktop testing in progress' },
+  { name: 'macOS', status: 'Not available', detail: 'Intel and Apple Silicon builds not produced yet' }
+];
+
 export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
@@ -42,17 +53,40 @@ export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose })
           </div>
           <div>
             <h3 id="get-pilot-title" className="text-xl font-display font-bold text-white">EgyKode Pilot</h3>
-            <span className="text-xs font-mono text-yellow-400">Not yet released</span>
+            <span className="text-xs font-mono text-yellow-400">0.1.1 · Invited beta</span>
           </div>
         </div>
 
+        <p className="text-sm text-gray-300 font-sans mb-4 leading-relaxed">
+          Pilot is in a small invited beta on Windows. There is no public download yet. Invited
+          testers receive the Windows build directly, with its SHA-256 checksum to check before
+          opening it.
+        </p>
+
+        <ul className="text-sm font-sans mb-4 divide-y divide-white/10 border border-white/10 rounded-lg" aria-label="Platform availability">
+          {PLATFORMS.map(({ name, status, detail }) => (
+            <li key={name} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 px-3 py-2">
+              <span className="text-white sm:w-36 shrink-0">{name}</span>
+              <span className="font-mono text-xs text-yellow-400 sm:w-40 shrink-0">{status}</span>
+              <span className="text-gray-400">{detail}</span>
+            </li>
+          ))}
+        </ul>
+
         <p className="text-sm text-gray-300 font-sans mb-3 leading-relaxed">
-          Downloads are not available yet. The Windows beta is planned for Microsoft Store.
-          Windows is the only public beta target; Linux and macOS are not included.
+          The beta build is not code-signed, so Windows SmartScreen shows a warning before it first
+          runs. It is not available from Microsoft Store yet.
+        </p>
+        <p className="text-sm text-gray-300 font-sans mb-3 leading-relaxed">
+          To ask for an invitation, message{' '}
+          <a href="https://linkedin.com/company/egykode" target="_blank" rel="noopener noreferrer" className="text-[#22de7e] underline underline-offset-2">
+            EgyKode on LinkedIn
+          </a>
+          .
         </p>
         <p className="text-sm text-gray-400 font-sans leading-relaxed">
-          After approval and Microsoft Store certification, the Store listing will be linked here. Until then, an installer,
-          npm package or install command offered under this name did not come from us.
+          An installer, npm package or install command offered under this name anywhere else did not
+          come from us.
         </p>
       </div>
     </div>

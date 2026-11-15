@@ -15,7 +15,7 @@ interface GetPilotModalProps {
  * hash check. Nothing is offered here until a signed release and its checksums exist.
  */
 /*
- * Availability as verified for 0.1.1 (Pilot reports/beta-release/PLATFORM-VALIDATION-MATRIX.md).
+ * Availability as verified for 0.1.2 (Pilot reports/beta-release/PLATFORM-VALIDATION-MATRIX.md).
  * Change a row only when that matrix does: no platform is offered here before its native test.
  */
 const PLATFORMS: { name: string; status: string; detail: string }[] = [
@@ -53,7 +53,7 @@ export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose })
           </div>
           <div>
             <h3 id="get-pilot-title" className="text-xl font-display font-bold text-white">EgyKode Pilot</h3>
-            <span className="text-xs font-mono text-yellow-400">0.1.1 · Invited beta</span>
+            <span className="text-xs font-mono text-yellow-400">0.1.2 · Invited beta</span>
           </div>
         </div>
 

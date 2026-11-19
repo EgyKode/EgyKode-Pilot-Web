@@ -91,11 +91,6 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenGetPilot }) => {
             <span className="font-display font-bold text-sm sm:text-base text-[#22de7e] tracking-tight">
               Pilot
             </span>
-
-            {/* Service Type Pill */}
-            <span className="hidden sm:inline-block font-mono text-[9px] text-[#22de7e] bg-[#22de7e]/10 border border-[#22de7e]/30 px-1.5 py-0.5 rounded uppercase tracking-wider font-semibold">
-              Compiler
-            </span>
           </div>
         </a>
 

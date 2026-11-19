@@ -23,7 +23,7 @@ async function prerender() {
   const requiredSnippets = [
     'FROM CODE',
     'TO CLOUD',
-    'The Intelligent Cloud DevOps Compiler',
+    'The Intelligent Cloud DevOps Generator',
     'Give Pilot your code. It figures out the cloud.',
     'Architectural Invariants'
   ];

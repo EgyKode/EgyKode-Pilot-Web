@@ -1,4 +1,4 @@
-# EgyKode PILOT — The Intelligent Cloud DevOps Compiler
+# EgyKode PILOT — The Intelligent Cloud DevOps Generator
 
 > EgyKode PILOT inverts the traditional cloud engineering journey. Instead of forcing developers to manually write thousands of lines of cloud infrastructure definitions, PILOT starts in the application source code using zero-egress static AST parsing, determines production constraints, and synthesizes validated, cost-aware Terraform infrastructure and CI/CD pipelines under explicit human review. Engineered by EgyKode (https://egykode.com) as one of its three Flagship Software Products.
 

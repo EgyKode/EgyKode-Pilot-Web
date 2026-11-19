@@ -138,12 +138,12 @@ export const BusinessIntentSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Compiled Architecture Constraints */}
+          {/* Right Column: Derived Architecture Constraints */}
           <div className="lg:col-span-6 bg-[#0b0e11] p-6 sm:p-7 rounded-lg border border-white/10 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
                 <span className="text-xs font-mono text-[#22de7e] uppercase tracking-wider">
-                  COMPILED ARCHITECTURAL CONSTRAINTS
+                  DERIVED ARCHITECTURAL CONSTRAINTS
                 </span>
                 <span className="badge-confirmed text-xs">DYNAMIC RULES ACTIVE</span>
               </div>
@@ -191,7 +191,7 @@ export const BusinessIntentSection: React.FC = () => {
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-gray-400">
-              <span>Requirements compiled:</span>
+              <span>Requirements derived:</span>
               <span className="text-[#22de7e]">Zero Guesswork Architecture</span>
             </div>
           </div>

@@ -77,7 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#0f1316] border border-gray-200 dark:border-white/10 shadow-xs dark:shadow-inner transition-colors duration-200">
             <span className="w-2 h-2 rounded-full bg-[#047857] dark:bg-[#22de7e] animate-pulse"></span>
             <span className="font-mono text-[11px] uppercase tracking-widest text-gray-700 dark:text-gray-300 font-medium">
-              The Intelligent Cloud DevOps Compiler
+              The Intelligent Cloud DevOps Generator
             </span>
           </div>
         </div>
@@ -120,7 +120,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
           </a>
         </div>
 
-        {/* CINEMATIC COMPILER PRODUCT DEMO WINDOW */}
+        {/* CINEMATIC PRODUCT DEMO WINDOW */}
         <div className="max-w-4xl mx-auto">
           {/* Step Progress Conduit Bar */}
           <div className="flex sm:grid sm:grid-cols-5 gap-1.5 mb-2.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
@@ -158,9 +158,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onGetP
             })}
           </div>
 
-          {/* Interactive Compiler Terminal Panel */}
+          {/* Interactive Generation Terminal Panel */}
           <ProductWindow
-            title="compiler/session-042"
+            title="pilot/session-042"
             badge="LOCAL SCAN"
             badgeType="success"
             actionContent={

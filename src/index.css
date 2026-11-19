@@ -499,3 +499,86 @@ html:not(.dark) .hover\:text-white:hover {
 }
 
 
+
+/* ========================================================= */
+/* GET PILOT DOWNLOAD DIALOG (.pdl-*)                         */
+/* Built only on the theme tokens above, so light and dark     */
+/* each render correctly without !important overrides. The     */
+/* first version reused dark-only utility classes: in light    */
+/* mode its command blocks stayed dark while their text was    */
+/* darkened, which made the commands unreadable.               */
+/* ========================================================= */
+.pdl-overlay { background: rgba(3, 6, 9, 0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+html:not(.dark) .pdl-overlay { background: rgba(15, 23, 42, 0.35); }
+
+.pdl-panel {
+  background: var(--surface-1);
+  border: 1px solid var(--border-medium);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+html:not(.dark) .pdl-panel { box-shadow: 0 24px 60px -24px rgba(15, 23, 42, 0.35); }
+
+.pdl-head { border-bottom: 1px solid var(--border-subtle); background: var(--surface-1); }
+.pdl-title { color: var(--text-primary); }
+.pdl-text { color: var(--text-secondary); }
+.pdl-muted { color: var(--text-muted); }
+.pdl-link { color: var(--brand-primary); text-decoration: underline; text-underline-offset: 3px; }
+.pdl-link:hover { opacity: 0.85; }
+
+.pdl-badge {
+  color: var(--brand-primary); background: var(--brand-dim); border: 1px solid var(--brand-border);
+  border-radius: 999px; padding: 1px 8px; font-family: var(--font-mono); font-size: 11px;
+}
+.pdl-chip {
+  color: var(--text-secondary); background: var(--surface-2); border: 1px solid var(--border-subtle);
+  border-radius: 6px; padding: 1px 7px; font-family: var(--font-mono); font-size: 11px;
+}
+.pdl-chip-warn { color: var(--accent-amber); border-color: color-mix(in srgb, var(--accent-amber) 35%, transparent); background: color-mix(in srgb, var(--accent-amber) 10%, transparent); }
+
+.pdl-close { color: var(--text-secondary); border: 1px solid var(--border-subtle); background: var(--surface-2); border-radius: 10px; }
+.pdl-close:hover { color: var(--text-primary); border-color: var(--border-strong); }
+
+.pdl-card { background: var(--surface-0); border: 1px solid var(--border-subtle); border-radius: 14px; }
+html:not(.dark) .pdl-card { background: #f8fafc; }
+
+.pdl-btn {
+  display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 8px 14px;
+  font-size: 13px; font-weight: 600; border: 1px solid var(--border-medium); color: var(--text-primary);
+  background: var(--surface-2); transition: border-color 0.15s, transform 0.15s, background-color 0.15s;
+}
+.pdl-btn:hover { border-color: var(--brand-border); transform: translateY(-1px); }
+.pdl-btn-primary { background: var(--brand-primary); border-color: transparent; color: #ffffff; }
+html.dark .pdl-btn-primary { color: #04130b; }
+.pdl-btn-primary:hover { border-color: transparent; filter: brightness(1.06); }
+.pdl-btn-size { font-weight: 500; opacity: 0.75; font-family: var(--font-mono); font-size: 11px; }
+
+.pdl-verify { border-top: 1px dashed var(--border-subtle); }
+.pdl-verify > summary { cursor: pointer; list-style: none; color: var(--text-secondary); }
+.pdl-verify > summary::-webkit-details-marker { display: none; }
+.pdl-verify > summary::before { content: '▸'; display: inline-block; width: 1em; transition: transform 0.15s; }
+.pdl-verify[open] > summary::before { transform: rotate(90deg); }
+.pdl-verify > summary:hover { color: var(--text-primary); }
+
+.pdl-hash { color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; word-break: break-all; }
+
+.pdl-cmd {
+  background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 10px;
+}
+html:not(.dark) .pdl-cmd { background: #eef2f7; border-color: rgba(15, 23, 42, 0.1); }
+.pdl-cmd code { color: var(--text-primary); font-family: var(--font-mono); font-variant-ligatures: none; }
+.pdl-copy {
+  color: var(--text-secondary); background: var(--surface-1); border: 1px solid var(--border-medium);
+  border-radius: 7px; padding: 2px 10px; font-size: 11px; font-weight: 600;
+}
+.pdl-copy:hover { color: var(--text-primary); border-color: var(--brand-border); }
+.pdl-copy[data-copied="true"] { color: var(--brand-primary); border-color: var(--brand-border); }
+
+.pdl-tabs { background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; }
+html:not(.dark) .pdl-tabs { background: #eef2f7; }
+.pdl-tab { color: var(--text-secondary); border-radius: 9px; }
+.pdl-tab:hover { color: var(--text-primary); }
+.pdl-tab[aria-selected="true"] { color: var(--text-primary); background: var(--surface-1); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--border-medium); }
+html:not(.dark) .pdl-tab[aria-selected="true"] { background: #ffffff; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.08); }
+.pdl-tab[aria-selected="true"] { color: var(--brand-primary); background: var(--brand-dim); box-shadow: 0 0 0 1px var(--brand-border); }
+html:not(.dark) .pdl-tab[aria-selected="true"] { color: var(--brand-primary); background: #ffffff; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--brand-border); }

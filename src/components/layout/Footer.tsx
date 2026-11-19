@@ -1,5 +1,13 @@
 import React from 'react';
 
+/** EgyKode products, in the order egykode.com presents them. */
+const ECOSYSTEM = [
+  { name: 'ProcMarts', href: 'https://procmarts.egykode.com' },
+  { name: 'Care', href: 'https://care.egykode.com' },
+  { name: 'Craft', href: 'https://craft.egykode.com' },
+  { name: 'Academy', href: 'https://academy.egykode.com' }
+] as const;
+
 export const Footer: React.FC = () => {
   return (
     <footer className="border-t border-white/10 bg-[#07090b] pt-16 pb-12 relative overflow-hidden">
@@ -97,36 +105,18 @@ export const Footer: React.FC = () => {
               Ecosystem
             </h4>
             <ul className="space-y-2.5 text-xs font-mono mb-4">
-              <li>
-                <a
-                  href="https://egykode.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-[#22de7e] transition-colors flex items-center gap-1.5"
-                >
-                  <span>EgyKode Company ↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://craft.egykode.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-[#22de7e] transition-colors flex items-center gap-1.5"
-                >
-                  <span>Craft Platform ↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://academy.egykode.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-[#22de7e] transition-colors flex items-center gap-1.5"
-                >
-                  <span>EgyKode Academy ↗</span>
-                </a>
-              </li>
+              {ECOSYSTEM.map((product) => (
+                <li key={product.href}>
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-[#22de7e] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>{product.name} ↗</span>
+                  </a>
+                </li>
+              ))}
             </ul>
 
             <h4 className="text-xs font-mono uppercase tracking-wider text-gray-400 mb-2 font-semibold">
@@ -164,8 +154,9 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-6">
             <a href="https://egykode.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Company</a>
-            <a href="https://craft.egykode.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Craft</a>
-            <a href="https://academy.egykode.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Academy</a>
+            {ECOSYSTEM.map((product) => (
+              <a key={product.href} href={product.href} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">{product.name}</a>
+            ))}
             <span className="text-[#22de7e]">From Code to Cloud</span>
           </div>
         </div>

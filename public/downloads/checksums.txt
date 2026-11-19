@@ -1,2 +1,0 @@
-# EgyKode Pilot has no published release, so there are no checksums.
-# A checksum listed here before 2026-10-04 did not match any file this site served.

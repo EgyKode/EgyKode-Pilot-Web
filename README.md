@@ -4,11 +4,11 @@
 
 # EgyKode / Pilot
 
-**The Intelligent Cloud DevOps Compiler.**
+**The Intelligent Cloud DevOps Generator.**
 
 Turn application source code into an explained, cost-aware, editable, validated, and safely deliverable Cloud DevOps implementation.
 
-**[pilot.egykode.com](https://pilot.egykode.com)** · [EgyKode company](https://egykode.com) · [EgyKode Academy](https://academy.egykode.com) · [The Five Questions](#-the-five-questions-pilot-answers) · [Trust Vocabulary](#-trust--status-vocabulary) · [Pipeline](#-the-end-to-end-compiler-pipeline) · [Infrastructure](#-production-infrastructure) · [Quick Start](#-quick-start)
+**[pilot.egykode.com](https://pilot.egykode.com)** · [EgyKode company](https://egykode.com) · [EgyKode Academy](https://academy.egykode.com) · [The Five Questions](#-the-five-questions-pilot-answers) · [Trust Vocabulary](#-trust--status-vocabulary) · [Pipeline](#-the-end-to-end-generation-pipeline) · [Infrastructure](#-production-infrastructure) · [Quick Start](#-quick-start)
 
 [![Live Site](https://img.shields.io/badge/live-pilot.egykode.com-22de7e?style=flat-square)](https://pilot.egykode.com)
 [![Platform: EgyKode](https://img.shields.io/badge/platform-egykode.com-1fe881?style=flat-square)](https://egykode.com)
@@ -109,7 +109,7 @@ Nothing is provisioned automatically without explicit developer consent. Pilot o
 
 ---
 
-## 🚀 The End-to-End Compiler Pipeline
+## 🚀 The End-to-End Generation Pipeline
 
 ```
 [ Step 01: Ingestion ]    → [ Step 02: Topology ]     → [ Step 03: Architecture ]
@@ -255,7 +255,7 @@ egykode-pilot-web/
 - **[EgyKode company](https://egykode.com):** The IT and technology company behind the product, services, and consulting portfolio.
 - **[EgyKode Academy](https://academy.egykode.com):** The open-source Cloud & DevOps learning platform with structured chapters, roadmaps, and hands-on labs.
 - **[EgyKode Academy](https://github.com/EgyKode/EgyKode-Academy):** Core learning platform repository.
-- **[EgyKode Pilot Web repository](https://github.com/EgyKode/EgyKode-Pilot-Web):** Source for the official web interface and architectural compiler product experience.
+- **[EgyKode Pilot Web repository](https://github.com/EgyKode/EgyKode-Pilot-Web):** Source for the official web interface and product experience.
 
 ---
 

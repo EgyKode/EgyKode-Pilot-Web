@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#0f1316] border border-white/10 text-[10px] font-mono text-gray-400">
               <span className="w-1.5 h-1.5 rounded-full bg-[#22de7e] animate-pulse"></span>
-              <span>COMPILER ENGINE ONLINE</span>
+              <span>LOCAL-FIRST GENERATION ENGINE</span>
             </div>
           </div>
 
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
           {/* 3. Product & Decision */}
           <div className="md:col-span-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-gray-400 mb-4 font-semibold">
-              Compiler Pipeline
+              Generation Pipeline
             </h4>
             <ul className="space-y-2 text-xs font-sans text-gray-400">
               <li><a href="#story" className="hover:text-white transition-colors">Cognitive Reduction</a></li>

@@ -30,7 +30,7 @@ export const TransformationSection: React.FC = () => {
         </h2>
 
         <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 font-sans max-w-2xl mx-auto mb-16 leading-relaxed">
-          Pilot decodes that intent and compiles it directly into cloud reality.
+          Pilot decodes that intent and turns it directly into a reviewable cloud plan.
         </p>
 
         {/* Full-width transformation spine */}
@@ -57,7 +57,7 @@ export const TransformationSection: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-gray-500 dark:text-gray-400">
             <span>From local source code to verified cloud delivery</span>
             <span className="text-[#047857] dark:text-[#22de7e] font-semibold flex items-center gap-1.5">
-              <IconCheck size={14} /> Deterministic Cloud DevOps Compiler
+              <IconCheck size={14} /> Deterministic Cloud DevOps Generator
             </span>
           </div>
         </div>

@@ -18,7 +18,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onGetPilotClic
         </h2>
 
         <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 font-sans max-w-xl mx-auto mb-10 leading-relaxed">
-          Experience the Intelligent Cloud DevOps Compiler. Point it at any local folder on disk or Git repository, inspect the generated plan, and deliver with total certainty.
+          Experience the Intelligent Cloud DevOps Generator. Point it at any local folder on disk or Git repository, inspect the generated plan, and deliver once it validates.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

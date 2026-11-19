@@ -132,7 +132,7 @@ export const DeliverySection: React.FC = () => {
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-300 font-sans text-xs leading-relaxed">
-                  Writes all compiled Terraform modules, Kubernetes manifests and IAM policies directly to your local file system. Perfect for inspecting files locally in your editor or testing in your local staging environment without committing to remote Git.
+                  Writes all generated Terraform modules, Kubernetes manifests and IAM policies directly to your local file system. Perfect for inspecting files locally in your editor or testing in your local staging environment without committing to remote Git.
                 </p>
 
                 <div className="pt-2 flex items-center justify-between">
@@ -180,7 +180,7 @@ export const DeliverySection: React.FC = () => {
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-300 font-sans text-xs leading-relaxed">
-                  Downloads a self-contained, offline `.zip` archive containing the entire compiled infrastructure repository with zero external dependencies. Ideal for compliance sign-offs, offline air-gapped networks, or third-party audits.
+                  Downloads a self-contained, offline `.zip` archive containing the entire generated infrastructure repository with zero external dependencies. Ideal for compliance sign-offs, offline air-gapped networks, or third-party audits.
                 </p>
 
                 <div className="pt-2 flex items-center justify-between">

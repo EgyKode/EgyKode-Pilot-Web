@@ -22,7 +22,7 @@ async function verify() {
   assert(html.length > 25000, `Production HTML output is substantial (${html.length.toLocaleString()} bytes > 25KB)`);
   assert(html.includes('lang="en"'), 'HTML specifies lang="en"');
   assert(html.includes('dir="ltr"'), 'HTML specifies dir="ltr"');
-  assert(html.includes('<title>EgyKode Pilot — From Code to Cloud | The Intelligent Cloud DevOps Compiler</title>'), 'HTML contains correct English title');
+  assert(html.includes('<title>EgyKode Pilot — From Code to Cloud | The Intelligent Cloud DevOps Generator</title>'), 'HTML contains correct English title');
   assert(html.includes('<link rel="canonical" href="https://pilot.egykode.com/" />'), 'HTML has canonical URL pointing to https://pilot.egykode.com/');
   assert(!html.includes('hreflang="ar"'), 'HTML correctly does NOT include Arabic hreflang (English-first product)');
 
@@ -32,7 +32,7 @@ async function verify() {
 
   // 3. Technical Engineering Content Assertions
   assert(html.includes('FROM CODE') && html.includes('TO CLOUD'), 'HTML contains primary H1 "FROM CODE TO CLOUD."');
-  assert(html.includes('The Intelligent Cloud DevOps Compiler'), 'HTML contains category pill "The Intelligent Cloud DevOps Compiler"');
+  assert(html.includes('The Intelligent Cloud DevOps Generator'), 'HTML contains category pill "The Intelligent Cloud DevOps Generator"');
   assert(html.includes('Give Pilot your code. It figures out the cloud.'), 'HTML contains core value proposition');
   assert(html.includes('Local by default') && html.includes('Deterministic rules'), 'HTML contains architectural invariants');
   assert(html.includes('id="magic-moment"') || html.includes('id="story"'), 'HTML contains continuous narrative section anchors');

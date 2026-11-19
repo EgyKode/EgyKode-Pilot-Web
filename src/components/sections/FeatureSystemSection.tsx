@@ -31,8 +31,8 @@ export const FeatureSystemSection: React.FC = () => {
     },
     {
       phase: '03 / GENERATE',
-      title: 'Deterministic Code Compilation',
-      desc: 'Compiling the canonical blueprint into production-grade, human-readable DevOps repositories.',
+      title: 'Deterministic Code Generation',
+      desc: 'Turning the canonical blueprint into production-grade, human-readable DevOps repositories.',
       items: [
         'Modular Terraform HCL (Zero monolithic state)',
         'Production Kubernetes Manifests with Probes',

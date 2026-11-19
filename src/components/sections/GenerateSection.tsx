@@ -10,7 +10,7 @@ export const GenerateSection: React.FC = () => {
   const [actionNotice, setActionNotice] = useState<string | null>(null);
   const currentFile = GENERATED_FILES[selectedFileIndex];
 
-  const compilerPhases = [
+  const generationPhases = [
     { name: 'ANALYZING', label: 'Workloads Discovered', done: true },
     { name: 'DESIGNING', label: 'Dual-AZ Architecture', done: true },
     { name: 'COMPOSING', label: 'Cloud Resources Mapped', done: true },
@@ -41,15 +41,15 @@ export const GenerateSection: React.FC = () => {
       <div className="container-custom">
         <SectionHeader
           sceneNumber="SCENE 10"
-          category="THE COMPILER"
-          title="Generated like software. Compiled like code."
-          subtitle="Pilot is not an LLM hallucinating code snippets. It is a deterministic compiler that assembles your complete DevOps repository through six rigorous stages."
+          category="THE GENERATOR"
+          title="Generated like software. Validated like code."
+          subtitle="Pilot is not an LLM hallucinating code snippets. It is a deterministic generator that assembles your complete DevOps repository through six rigorous stages."
         />
 
         <div className="max-w-5xl mx-auto">
-          {/* Compiler Pipeline Stage Chips */}
+          {/* Generation Pipeline Stage Chips */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
-            {compilerPhases.map((phase, idx) => (
+            {generationPhases.map((phase, idx) => (
               <div
                 key={phase.name}
                 className="p-2.5 rounded-lg bg-white dark:bg-[#0b0e11] border border-[#a7f3d0] dark:border-[#22de7e]/30 flex flex-col font-mono text-xs shadow-xs transition-colors duration-200"
@@ -75,7 +75,7 @@ export const GenerateSection: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4 p-3 rounded-xl bg-white dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 font-mono text-xs shadow-sm transition-colors duration-200">
             <div className="flex items-center gap-2">
               <span className="text-gray-500 dark:text-gray-400 text-[11px]">Generation Plan:</span>
-              <span className="font-semibold text-gray-900 dark:text-white">6 files compiled</span>
+              <span className="font-semibold text-gray-900 dark:text-white">6 files generated</span>
               <span className="text-gray-300 dark:text-gray-600">·</span>
               <span className="text-[#047857] dark:text-[#22de7e] font-semibold">100% Invariants Passed</span>
             </div>

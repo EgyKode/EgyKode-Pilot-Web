@@ -49,7 +49,7 @@ export const ProblemSection: React.FC = () => {
                   : 'text-gray-400 hover:text-gray-200'
               }`}
             >
-              <span>The Pilot Compiler (1 Step)</span>
+              <span>EgyKode Pilot (1 Step)</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#22de7e]"></span>
             </button>
           </div>
@@ -121,7 +121,7 @@ export const ProblemSection: React.FC = () => {
               <div className="flex-1 flex flex-col items-center px-4 w-full md:w-auto">
                 <div className="w-full h-1 bg-gradient-to-r from-gray-700 via-[#22de7e] to-gray-700 relative rounded-full">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-[#161b1f] border border-[#22de7e]/40 rounded-full text-[11px] font-mono text-[#22de7e] whitespace-nowrap shadow-lg">
-                    Pilot Compiler Engine
+                    Pilot Generation Engine
                   </div>
                 </div>
                 <span className="text-[10px] font-mono text-gray-500 mt-3">
@@ -138,7 +138,7 @@ export const ProblemSection: React.FC = () => {
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300 font-sans">
-              <span>Your application already contains the cues for what it needs. Pilot compiles that intent directly into cloud infrastructure.</span>
+              <span>Your application already contains the cues for what it needs. Pilot turns that intent directly into cloud infrastructure.</span>
               <span className="font-mono text-[#22de7e]">Code → Pilot</span>
             </div>
           </div>

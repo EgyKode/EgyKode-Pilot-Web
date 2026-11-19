@@ -121,12 +121,12 @@ export const PathToGreenSection: React.FC = () => {
             {/* Invariant Footer Callout */}
             <div className="p-3.5 rounded-lg bg-gray-50 dark:bg-[#0b0e11] border border-gray-200/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
               <span className="text-gray-700 dark:text-gray-300">
-                Compiler Invariant Check:
+                Generation Invariant Check:
               </span>
               <span className={allResolved ? 'text-[#047857] dark:text-[#22de7e] font-semibold' : 'text-[#b45309] dark:text-yellow-400 font-semibold'}>
                 {allResolved
                   ? 'All 2 ambiguity blockers resolved · Pipeline cleared for IaC generation'
-                  : 'Compilation suspended · Waiting for architectural decisions above'}
+                  : 'Generation suspended · Waiting for architectural decisions above'}
               </span>
             </div>
           </div>

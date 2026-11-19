@@ -6,16 +6,94 @@ interface GetPilotModalProps {
 }
 
 /*
- * Downloads are unavailable until a verified release exists (containment, 2026-10-04).
+ * The public beta download dialog.
  *
- * This modal offered Windows, macOS and Linux installers marked "BUILT & VERIFIED", an
- * `npx @egykode/pilot` command and pipe-to-shell install scripts. No platform had a verified
- * release: the download addresses returned the site's own HTML, the published checksum matched no
- * served file, the npm package does not exist, and the scripts ran what they fetched without a
- * hash check. Nothing is offered here until a signed release and its checksums exist.
+ * Containment history (2026-10-04): this dialog once offered installers marked "BUILT & VERIFIED"
+ * whose addresses returned the site's own HTML, a checksum that matched no served file, an npm
+ * package that did not exist, and pipe-to-shell scripts. So every file below is offered only after
+ * it has been fetched back through the public CDN and its size, SHA-256 and content type matched
+ * the release record (Pilot reports/beta-release/PUBLIC-BETA-PUBLICATION.md). A file with
+ * `verified: false` is listed without a link.
  */
+const VERSION = '0.1.2';
+const BASE = `/downloads/${VERSION}`;
+// The application repository is private, so its issue tracker is not a public feedback route.
+const FEEDBACK = 'https://linkedin.com/company/egykode';
+
+interface ReleaseFile {
+  label: string;
+  file: string;
+  sizeMb: number;
+  sha256: string;
+  verified: boolean;
+}
+
+interface Platform {
+  name: string;
+  arch: string;
+  status: string;
+  files: ReleaseFile[];
+  notes: string[];
+}
+
+// Release record: Pilot reports/beta-release/ARTIFACT-MANIFEST-0.1.2-public.json.
+const PLATFORMS: Platform[] = [
+  {
+    name: 'Windows 10 / 11',
+    arch: 'x64',
+    status: 'Beta · unsigned',
+    files: [
+      { label: 'Portable ZIP', file: 'egykode-pilot-0.1.2-portable-win-x64.zip', sizeMb: 149, sha256: '948c83c5573ee50ae444504e400beea0d0282bd344f2a1920335e81638bb310a', verified: true }
+    ],
+    notes: [
+      'Extract the ZIP and run "EgyKode Pilot.exe". Tested on Windows 11; Windows 10 is not yet tested.',
+      'Not code-signed: SmartScreen shows "Windows protected your PC". After checking the SHA-256, choose More info → Run anyway. Do not turn SmartScreen off.'
+    ]
+  },
+  {
+    name: 'macOS',
+    arch: 'Apple Silicon (arm64)',
+    status: 'Beta · not notarized',
+    files: [
+      { label: 'DMG', file: 'egykode-pilot-0.1.2-mac-arm64.dmg', sizeMb: 125, sha256: 'adc1e754dc56ce04fd0bdc2598d8c43ebb9f02b33da9f7bd23d907c506b48a62', verified: true },
+      { label: 'ZIP', file: 'egykode-pilot-0.1.2-mac-arm64.zip', sizeMb: 125, sha256: '2ba66c4c6bef37bd1890a6377cfb554c4569dbac77f0b1b0e6c494b24d0596f9', verified: true }
+    ],
+    notes: []
+  },
+  {
+    name: 'macOS',
+    arch: 'Intel (x64)',
+    status: 'Beta · not notarized',
+    files: [
+      { label: 'DMG', file: 'egykode-pilot-0.1.2-mac-x64.dmg', sizeMb: 131, sha256: 'd2a15d54afd575e7f736a94d6cc61f2a677b87bcfeb38c68a1df57870f068ef4', verified: true },
+      { label: 'ZIP', file: 'egykode-pilot-0.1.2-mac-x64.zip', sizeMb: 131, sha256: '5ee5fc4cb7d677e9983b5d870e377276fd187c13b06ac942c869c4d534d1438a', verified: true }
+    ],
+    notes: [
+      'Ad-hoc signed and not notarized by Apple, so macOS blocks the first launch. Open it once with right-click → Open, or System Settings → Privacy & Security → Open Anyway for this app. Never disable Gatekeeper globally.'
+    ]
+  },
+  {
+    name: 'Linux',
+    arch: 'x64',
+    status: 'Beta · OpenPGP-signed',
+    files: [
+      { label: 'DEB (Debian, Ubuntu)', file: 'egykode-pilot-0.1.2-x64.deb', sizeMb: 97, sha256: '9329ef34f9d4e9247e67d422b4f73bb11852ccf44071333fc90a3b2922e65da3', verified: true },
+      { label: 'RPM (Fedora, RHEL)', file: 'egykode-pilot-0.1.2-x64.rpm', sizeMb: 86, sha256: 'd9a417a95f860f119239d734cb9f9361a90b3d3a5ccb7adc512bd8e5f691bdfa', verified: true },
+      { label: 'AppImage (any distribution)', file: 'egykode-pilot-0.1.2-x64.AppImage', sizeMb: 123, sha256: 'a8ecc94541bf7ac42e72e2acf1cca74d6c4547872e68dca2fca60fa518a6e1fa', verified: true }
+    ],
+    notes: [
+      'sudo apt install ./egykode-pilot-0.1.2-x64.deb · sudo dnf install ./egykode-pilot-0.1.2-x64.rpm · or chmod +x the AppImage and run it.',
+      'Each package has a .sig beside it. Do not run Pilot with --no-sandbox or disable AppArmor.'
+    ]
+  }
+];
+
+const SIGNING_KEY = `${BASE}/egykode-pilot-linux-signing-key.pub.asc`;
+const LINUX_FINGERPRINT = '8D9C A1DA C703 BFD1 A698  0039 A0E0 5D37 13D3 F311';
+
 export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
+  const anyVerified = PLATFORMS.some((p) => p.files.some((f) => f.verified));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
@@ -23,7 +101,7 @@ export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose })
         role="dialog"
         aria-modal="true"
         aria-labelledby="get-pilot-title"
-        className="glass-panel w-full max-w-xl p-6 sm:p-8 border border-white/20 bg-[#0f1316] shadow-2xl relative rounded-2xl max-h-[90vh] overflow-y-auto"
+        className="glass-panel w-full max-w-2xl p-6 sm:p-8 border border-white/20 bg-[#0f1316] shadow-2xl relative rounded-2xl max-h-[90vh] overflow-y-auto"
       >
         <button
           onClick={onClose}
@@ -42,17 +120,73 @@ export const GetPilotModal: React.FC<GetPilotModalProps> = ({ isOpen, onClose })
           </div>
           <div>
             <h3 id="get-pilot-title" className="text-xl font-display font-bold text-white">EgyKode Pilot</h3>
-            <span className="text-xs font-mono text-yellow-400">Not yet released</span>
+            <span className="text-xs font-mono text-yellow-400">{VERSION} · Public beta</span>
           </div>
         </div>
 
+        <p className="text-sm text-gray-300 font-sans mb-4 leading-relaxed">
+          This is a beta. Pilot analyses source code on your machine and generates deployment files you
+          review before anything is written. Check every download against its SHA-256 before opening it.
+        </p>
+
+        <div className="space-y-3 mb-4" aria-label="Downloads by platform">
+          {PLATFORMS.map((platform) => (
+            <section key={`${platform.name}-${platform.arch}`} className="border border-white/10 rounded-lg p-3">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                <h4 className="text-white font-sans font-semibold">{platform.name}</h4>
+                <span className="text-xs text-gray-400 font-mono">{platform.arch}</span>
+                <span className="text-xs font-mono text-yellow-400">{platform.status}</span>
+              </div>
+              <ul className="space-y-2">
+                {platform.files.map((file) => (
+                  <li key={file.file} className="text-sm font-sans">
+                    {file.verified ? (
+                      <a href={`${BASE}/${file.file}`} download className="text-[#22de7e] underline underline-offset-2 break-all">
+                        {file.label}
+                      </a>
+                    ) : (
+                      <span className="text-gray-500">{file.label} (not available yet)</span>
+                    )}
+                    <span className="text-gray-500"> · {file.sizeMb} MB</span>
+                    {file.verified && /\.(deb|rpm|AppImage)$/.test(file.file) && (
+                      <>
+                        <span className="text-gray-500"> · </span>
+                        <a href={`${BASE}/${file.file}.sig`} className="text-[#22de7e] underline underline-offset-2">signature</a>
+                      </>
+                    )}
+                    <div className="font-mono text-[11px] text-gray-500 break-all">SHA-256 {file.sha256}</div>
+                  </li>
+                ))}
+              </ul>
+              {platform.notes.length > 0 && (
+                <ul className="mt-2 list-disc pl-5 text-xs text-gray-400 font-sans space-y-1">
+                  {platform.notes.map((note) => <li key={note}>{note}</li>)}
+                </ul>
+              )}
+            </section>
+          ))}
+        </div>
+
+        {anyVerified && (
+          <p className="text-xs text-gray-400 font-sans mb-3 leading-relaxed">
+            All checksums: <a href={`${BASE}/SHA256SUMS.txt`} className="text-[#22de7e] underline underline-offset-2">SHA256SUMS.txt</a>.
+            Linux packages carry detached OpenPGP signatures (<span className="font-mono">.sig</span>) made with key{' '}
+            <span className="font-mono">{LINUX_FINGERPRINT}</span> (<a href={SIGNING_KEY} className="text-[#22de7e] underline underline-offset-2">public key</a>):
+            {' '}<span className="font-mono">gpg --import egykode-pilot-linux-signing-key.pub.asc &amp;&amp; gpg --verify FILE.sig FILE</span>.
+          </p>
+        )}
+
         <p className="text-sm text-gray-300 font-sans mb-3 leading-relaxed">
-          Downloads are not available yet. No installer, package or install script is published for
-          Windows, macOS or Linux.
+          Found a problem? Message{' '}
+          <a href={FEEDBACK} target="_blank" rel="noopener noreferrer" className="text-[#22de7e] underline underline-offset-2">
+            EgyKode on LinkedIn
+          </a>
+          . Pilot&apos;s Settings → Diagnostics shows the report it would save, before saving it, so you
+          can attach it.
         </p>
         <p className="text-sm text-gray-400 font-sans leading-relaxed">
-          When a release is ready it will be listed here with its checksums. Until then, an installer,
-          npm package or install command offered under this name did not come from us.
+          Download Pilot only from this page. An installer, npm package or install command offered under
+          this name anywhere else did not come from us.
         </p>
       </div>
     </div>

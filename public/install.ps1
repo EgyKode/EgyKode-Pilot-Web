@@ -1,5 +1,5 @@
-# EgyKode Pilot is not available for download yet.
-# No installer has been published, so this script downloads and runs nothing. It does not call
-# `exit`: run as `iwr ... | iex` that would close the caller's own PowerShell session.
-Write-Host "EgyKode Pilot is not available for download yet. Nothing was downloaded or installed."
-Write-Host "See https://pilot.egykode.com for release news."
+# EgyKode Pilot has no script installer. This script downloads and runs nothing: download the
+# package from the website and check its SHA-256 before opening it. It does not call `exit`:
+# run as `iwr ... | iex` that would close the caller's own PowerShell session.
+Write-Host "EgyKode Pilot has no script installer. Nothing was downloaded or installed."
+Write-Host "Download it from https://pilot.egykode.com (Get Pilot) and verify its checksum first."

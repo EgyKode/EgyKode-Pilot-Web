@@ -15,7 +15,7 @@ interface GetPilotModalProps {
  * the release record (Pilot reports/beta-release/PUBLIC-BETA-PUBLICATION.md). A file with
  * `verified: false` is listed without a link.
  */
-const VERSION = '0.1.2';
+const VERSION = '0.1.3';
 const BASE = `/downloads/${VERSION}`;
 // The application repository is private, so its issue tracker is not a public feedback route.
 const FEEDBACK = 'https://linkedin.com/company/egykode';
@@ -86,15 +86,15 @@ const CopyCommand: React.FC<Command> = ({ label, cmd }) => {
 
 const SIGNING_KEY = `${BASE}/egykode-pilot-linux-signing-key.pub.asc`;
 
-// Release record: Pilot reports/beta-release/ARTIFACT-MANIFEST-0.1.2-public.json.
+// Release record: Pilot reports/beta-release/ARTIFACT-MANIFEST-0.1.3-public.json.
 const PLATFORMS: Platform[] = [
   {
     name: 'Windows 10 / 11',
     arch: 'x64',
     status: 'Beta · unsigned',
     files: [
-      { label: 'Installer (recommended)', file: 'egykode-pilot-0.1.2-setup-x64.exe', sizeMb: 108, sha256: 'bf6d2e846b743b20daa0ccc544671357a723d0249157aa759433c92456d36e4c', verified: true },
-      { label: 'Portable ZIP (no installation)', file: 'egykode-pilot-0.1.2-portable-win-x64.zip', sizeMb: 149, sha256: '948c83c5573ee50ae444504e400beea0d0282bd344f2a1920335e81638bb310a', verified: true }
+      { label: 'Installer (recommended)', file: 'egykode-pilot-0.1.3-setup-x64.exe', sizeMb: 108, sha256: '6b70b1ae20b0cdd8490eb1c448b3e579c20416461683081b3dd04b2b7d7daa23', verified: true },
+      { label: 'Portable ZIP (no installation)', file: 'egykode-pilot-0.1.3-portable-win-x64.zip', sizeMb: 149, sha256: '354af3c0be8c60fd2cb93510db82c12bb2ed06fc9ae24e3c32f202dcd5466782', verified: true }
     ],
     notes: [
       'Installer: installs for your Windows user only (no administrator rights), adds Start-menu and desktop shortcuts and an entry in Settings → Apps for uninstalling. On first launch Pilot opens its setup wizard.',
@@ -102,8 +102,8 @@ const PLATFORMS: Platform[] = [
       'Not code-signed: SmartScreen shows "Windows protected your PC". After checking the SHA-256, choose More info → Run anyway. Do not turn SmartScreen off. Tested on Windows 11; Windows 10 is not yet tested.'
     ],
     commands: [
-      { label: 'Check the installer (PowerShell, in the folder you saved it to; prints True)', cmd: "(Get-FileHash .\\egykode-pilot-0.1.2-setup-x64.exe -Algorithm SHA256).Hash -eq 'bf6d2e846b743b20daa0ccc544671357a723d0249157aa759433c92456d36e4c'" },
-      { label: 'Or check the portable ZIP (prints True)', cmd: "(Get-FileHash .\\egykode-pilot-0.1.2-portable-win-x64.zip -Algorithm SHA256).Hash -eq '948c83c5573ee50ae444504e400beea0d0282bd344f2a1920335e81638bb310a'" }
+      { label: 'Check the installer (PowerShell, in the folder you saved it to; prints True)', cmd: "(Get-FileHash .\\egykode-pilot-0.1.3-setup-x64.exe -Algorithm SHA256).Hash -eq '6b70b1ae20b0cdd8490eb1c448b3e579c20416461683081b3dd04b2b7d7daa23'" },
+      { label: 'Or check the portable ZIP (prints True)', cmd: "(Get-FileHash .\\egykode-pilot-0.1.3-portable-win-x64.zip -Algorithm SHA256).Hash -eq '354af3c0be8c60fd2cb93510db82c12bb2ed06fc9ae24e3c32f202dcd5466782'" }
     ]
   },
   {
@@ -111,14 +111,14 @@ const PLATFORMS: Platform[] = [
     arch: 'Apple Silicon (arm64)',
     status: 'Beta · not notarized',
     files: [
-      { label: 'DMG', file: 'egykode-pilot-0.1.2-mac-arm64.dmg', sizeMb: 125, sha256: 'adc1e754dc56ce04fd0bdc2598d8c43ebb9f02b33da9f7bd23d907c506b48a62', verified: true },
-      { label: 'ZIP', file: 'egykode-pilot-0.1.2-mac-arm64.zip', sizeMb: 125, sha256: '2ba66c4c6bef37bd1890a6377cfb554c4569dbac77f0b1b0e6c494b24d0596f9', verified: true }
+      { label: 'DMG', file: 'egykode-pilot-0.1.3-mac-arm64.dmg', sizeMb: 125, sha256: '701dd2574e5f18cf9a0abf78e80c5c42f7d0ddeacbe1c413d82d3432e3ab91a4', verified: true },
+      { label: 'ZIP', file: 'egykode-pilot-0.1.3-mac-arm64.zip', sizeMb: 125, sha256: 'cdbd0fc7d7d9ad601bd1654f6a904f391de193f3090a81ec251163f5f05fce5e', verified: true }
     ],
     notes: [
       'Ad-hoc signed and not notarized by Apple, so macOS blocks the first launch. Open it once with right-click → Open, or System Settings → Privacy & Security → Open Anyway for this app. Never disable Gatekeeper globally.'
     ],
     commands: [
-      { label: 'Check the DMG (Terminal, in the folder you saved it to; prints OK)', cmd: sumCheck('adc1e754dc56ce04fd0bdc2598d8c43ebb9f02b33da9f7bd23d907c506b48a62', 'egykode-pilot-0.1.2-mac-arm64.dmg') }
+      { label: 'Check the DMG (Terminal, in the folder you saved it to; prints OK)', cmd: sumCheck('701dd2574e5f18cf9a0abf78e80c5c42f7d0ddeacbe1c413d82d3432e3ab91a4', 'egykode-pilot-0.1.3-mac-arm64.dmg') }
     ]
   },
   {
@@ -126,11 +126,11 @@ const PLATFORMS: Platform[] = [
     arch: 'Intel (x64)',
     status: 'Beta · not notarized',
     files: [
-      { label: 'DMG', file: 'egykode-pilot-0.1.2-mac-x64.dmg', sizeMb: 131, sha256: 'd2a15d54afd575e7f736a94d6cc61f2a677b87bcfeb38c68a1df57870f068ef4', verified: true },
-      { label: 'ZIP', file: 'egykode-pilot-0.1.2-mac-x64.zip', sizeMb: 131, sha256: '5ee5fc4cb7d677e9983b5d870e377276fd187c13b06ac942c869c4d534d1438a', verified: true }
+      { label: 'DMG', file: 'egykode-pilot-0.1.3-mac-x64.dmg', sizeMb: 131, sha256: 'f282012fa7412b239ab44002dd1717c6e5d5d768ba1cb1d7f8179209bf2454af', verified: true },
+      { label: 'ZIP', file: 'egykode-pilot-0.1.3-mac-x64.zip', sizeMb: 131, sha256: '3de7086e2c3e9e57ff99d9d7b93f5410f24464ce8af14a82154e7687c4131862', verified: true }
     ],
     commands: [
-      { label: 'Check the DMG (Terminal, in the folder you saved it to; prints OK)', cmd: sumCheck('d2a15d54afd575e7f736a94d6cc61f2a677b87bcfeb38c68a1df57870f068ef4', 'egykode-pilot-0.1.2-mac-x64.dmg') }
+      { label: 'Check the DMG (Terminal, in the folder you saved it to; prints OK)', cmd: sumCheck('f282012fa7412b239ab44002dd1717c6e5d5d768ba1cb1d7f8179209bf2454af', 'egykode-pilot-0.1.3-mac-x64.dmg') }
     ],
     notes: [
       'Ad-hoc signed and not notarized by Apple, so macOS blocks the first launch. Open it once with right-click → Open, or System Settings → Privacy & Security → Open Anyway for this app. Never disable Gatekeeper globally.'
@@ -141,19 +141,19 @@ const PLATFORMS: Platform[] = [
     arch: 'x64',
     status: 'Beta · OpenPGP-signed',
     files: [
-      { label: 'DEB (Debian, Ubuntu)', file: 'egykode-pilot-0.1.2-x64.deb', sizeMb: 97, sha256: '9329ef34f9d4e9247e67d422b4f73bb11852ccf44071333fc90a3b2922e65da3', verified: true },
-      { label: 'RPM (Fedora, RHEL)', file: 'egykode-pilot-0.1.2-x64.rpm', sizeMb: 86, sha256: 'd9a417a95f860f119239d734cb9f9361a90b3d3a5ccb7adc512bd8e5f691bdfa', verified: true },
-      { label: 'AppImage (any distribution)', file: 'egykode-pilot-0.1.2-x64.AppImage', sizeMb: 123, sha256: 'a8ecc94541bf7ac42e72e2acf1cca74d6c4547872e68dca2fca60fa518a6e1fa', verified: true }
+      { label: 'DEB (Debian, Ubuntu)', file: 'egykode-pilot-0.1.3-x64.deb', sizeMb: 97, sha256: '5c4d538290e69f3000ac1c93b52ec56a3247eefc01c72d507704fb99e7f829f0', verified: true },
+      { label: 'RPM (Fedora, RHEL)', file: 'egykode-pilot-0.1.3-x64.rpm', sizeMb: 86, sha256: '243e0a8e86846864740cf90573353b46a4a6e2e9f2550c705295622001e0b282', verified: true },
+      { label: 'AppImage (any distribution)', file: 'egykode-pilot-0.1.3-x64.AppImage', sizeMb: 123, sha256: 'db8cdab4ed9931ea65a8b37f80dde1ebd3c38aa016021e3af1b2ecfdba92bfd4', verified: true }
     ],
     notes: [
       'Run these in the folder you downloaded to. Do not run Pilot with --no-sandbox or disable AppArmor.'
     ],
     commands: [
       { label: '1. Check the checksums of what you downloaded (prints OK per file)', cmd: `curl -fsSLO ${ORIGIN}${BASE}/SHA256SUMS.txt && sha256sum --ignore-missing -c SHA256SUMS.txt` },
-      { label: '2. Check the signature (DEB shown; use the .rpm or .AppImage name the same way)', cmd: `curl -fsSL -O ${ORIGIN}${SIGNING_KEY} -O ${ORIGIN}${BASE}/egykode-pilot-0.1.2-x64.deb.sig && gpg --import egykode-pilot-linux-signing-key.pub.asc && gpg --verify egykode-pilot-0.1.2-x64.deb.sig egykode-pilot-0.1.2-x64.deb` },
-      { label: '3a. Install on Ubuntu or Debian', cmd: 'sudo apt install ./egykode-pilot-0.1.2-x64.deb' },
-      { label: '3b. Install on Fedora or RHEL', cmd: 'sudo dnf install ./egykode-pilot-0.1.2-x64.rpm' },
-      { label: '3c. Or run the AppImage', cmd: 'chmod +x egykode-pilot-0.1.2-x64.AppImage && ./egykode-pilot-0.1.2-x64.AppImage' }
+      { label: '2. Check the signature (DEB shown; use the .rpm or .AppImage name the same way)', cmd: `curl -fsSL -O ${ORIGIN}${SIGNING_KEY} -O ${ORIGIN}${BASE}/egykode-pilot-0.1.3-x64.deb.sig && gpg --import egykode-pilot-linux-signing-key.pub.asc && gpg --verify egykode-pilot-0.1.3-x64.deb.sig egykode-pilot-0.1.3-x64.deb` },
+      { label: '3a. Install on Ubuntu or Debian', cmd: 'sudo apt install ./egykode-pilot-0.1.3-x64.deb' },
+      { label: '3b. Install on Fedora or RHEL', cmd: 'sudo dnf install ./egykode-pilot-0.1.3-x64.rpm' },
+      { label: '3c. Or run the AppImage', cmd: 'chmod +x egykode-pilot-0.1.3-x64.AppImage && ./egykode-pilot-0.1.3-x64.AppImage' }
     ]
   }
 ];

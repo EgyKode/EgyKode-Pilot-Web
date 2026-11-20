@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="dark">
+<html lang="en" dir="ltr" class="light">
   <head>
     <meta charset="UTF-8" />
     <script>
       (function() {
         try {
           var saved = localStorage.getItem('pilot_theme_v2');
-          if (saved === 'light') {
-            document.documentElement.classList.add('light');
-            document.documentElement.classList.remove('dark');
-          } else {
+          // Light is the default; dark only when the visitor chose it with the toggle.
+          if (saved === 'dark') {
             document.documentElement.classList.add('dark');
             document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
           }
         } catch (e) {}
       })();

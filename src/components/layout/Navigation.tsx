@@ -8,12 +8,12 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ onOpenGetPilot }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check initial theme - default to dark on first visit, or load saved selection
+    // Light by default on a first visit; a theme the visitor chose with the toggle is kept.
     const savedTheme = localStorage.getItem('pilot_theme_v2');
-    const shouldBeDark = savedTheme ? savedTheme === 'dark' : true;
+    const shouldBeDark = savedTheme === 'dark';
     setIsDark(shouldBeDark);
     if (shouldBeDark) {
       document.documentElement.classList.add('dark');
